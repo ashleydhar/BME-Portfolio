@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IR Communication System — Ashley</title>
+  <title>IR Communication System — Ashley Dhar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
   <style>
@@ -30,13 +30,19 @@
     .section-label { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.25rem; }
     .project-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; font-style: italic; margin-bottom: 1rem; }
     .project-body p { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.9; margin-bottom: 1rem; max-width: 660px; }
-    .image-placeholder { background: var(--surface); border: 1px dashed var(--border); border-radius: 4px; height: 280px; display: flex; align-items: center; justify-content: center; margin: 2rem 0; }
-    .image-placeholder span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 2rem 0; }
+    .photo-grid.two-col-photo { grid-template-columns: repeat(2, 1fr); }
+    .photo-grid.one-col { grid-template-columns: 1fr; }
+    .photo-grid img { width: 100%; height: 240px; object-fit: cover; border-radius: 3px; display: block; background: var(--surface); }
+    .photo-grid.one-col img { height: 400px; }
+    .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); letter-spacing: 0.05em; margin-top: 0.5rem; }
     .spec-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; }
     .spec-block dt { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem; margin-top: 1rem; }
     .spec-block dt:first-child { margin-top: 0; }
     .spec-block dd { font-size: 0.9rem; color: var(--text); font-weight: 300; }
+    .report-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cutive Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; margin-top: 1rem; display: inline-flex; }
+    .report-link:hover { background: var(--wine); color: var(--bg); }
     footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
     footer span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
     .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
@@ -44,15 +50,16 @@
       nav { padding: 1rem 1.5rem; } nav ul { gap: 1.25rem; }
       .project-hero, .project-body { padding-left: 1.5rem; padding-right: 1.5rem; }
       .project-hero { padding-top: 2.5rem; } .two-col { grid-template-columns: 1fr; gap: 2rem; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
-
   <nav>
-    <a href="index.html" class="nav-name">ashley [last name]</a>
+    <a href="index.html" class="nav-name">ashley dhar</a>
     <ul>
+      <li><a href="index.html#about">about</a></li>
       <li><a href="index.html#school">work</a></li>
       <li><a href="index.html#personal">personal</a></li>
       <li><a href="contact.html">contact</a></li>
@@ -65,11 +72,13 @@
     <div class="project-meta">EK 210 · Boston University · 2024–25</div>
     <h1>Point-to-Point<br /><em>IR Communication</em></h1>
     <p class="project-summary">
-      Designed and built an infrared optical communication system for transmitting signals between two endpoints. [Add your one-line summary of what made this interesting.]
+      Designed and built a two-unit infrared optical communication system — a transmitter with a rotating LED cylinder and keypad, and a receiver with an LCD display — housed in laser-cut MDF enclosures with Arduino-based electronics.
     </p>
     <div class="tags-row">
       <span class="tag">optical comms</span>
       <span class="tag">circuits</span>
+      <span class="tag">Arduino</span>
+      <span class="tag">laser-cut housing</span>
     </div>
   </div>
 
@@ -78,56 +87,82 @@
     <section>
       <span class="section-label">01 — Overview</span>
       <h2>The challenge</h2>
-      <p>[Describe the design prompt. What did the system need to do — transmit audio, data, a specific signal type? What were the constraints on distance, noise, power?]</p>
-    </section>
-
-    <section>
-      <span class="section-label">02 — System Design</span>
-      <h2>Transmitter & receiver</h2>
       <div class="two-col">
         <div>
-          <p>[Describe the transmitter side — LED driver circuit, modulation scheme, signal conditioning.]</p>
-          <p>[What component choices were key and why?]</p>
+          <p>The goal was to design and build a point-to-point infrared communication system from scratch — two separate units that could send and receive signals using IR light. The transmitter unit featured a keypad for input and a rotating cylinder housing the IR LED. The receiver decoded the signal and displayed output on an LCD screen.</p>
+          <p>[Add specifics — what signal type, what range you achieved, any modulation scheme.]</p>
         </div>
         <div class="spec-block">
           <dl>
-            <dt>Wavelength</dt>
-            <dd>[e.g. 940 nm]</dd>
-            <dt>Modulation</dt>
-            <dd>[e.g. AM / PWM / OOK]</dd>
-            <dt>Range</dt>
-            <dd>[e.g. ~X meters]</dd>
-            <dt>Signal type</dt>
-            <dd>[e.g. audio / digital data]</dd>
+            <dt>Course</dt><dd>EK 210 · BU</dd>
+            <dt>Components</dt><dd>Arduino, IR LED, photodiode, breadboard, LCD display, keypad</dd>
+            <dt>Housing</dt><dd>Laser-cut MDF, dark-stained</dd>
+            <dt>Power</dt><dd>Dual 9V batteries</dd>
           </dl>
         </div>
       </div>
     </section>
 
-    <div class="image-placeholder">
-      <span>circuit schematic or breadboard photo — add image here</span>
+    <div class="photo-grid one-col">
+      <div>
+        <img src="images/ir-overview.jpg" alt="IR system overview — CAD drawings and finished units" />
+        <p class="photo-caption">design drawings and finished transmitter + receiver units</p>
+      </div>
     </div>
 
     <section>
-      <span class="section-label">03 — Challenges</span>
-      <h2>What was hard</h2>
-      <p>[Describe any noise issues, alignment challenges, or design iterations. What went wrong and how did you fix it?]</p>
+      <span class="section-label">02 — Design</span>
+      <h2>Transmitter & receiver</h2>
+      <div class="two-col">
+        <div>
+          <p>The transmitter housed a keypad for input and a rotating cylinder containing the IR LED — allowing the beam to be aimed. The enclosure was designed in CAD and laser-cut from MDF.</p>
+          <p>[Describe the circuit — how the keypad input was encoded, how the IR signal was modulated and transmitted.]</p>
+        </div>
+        <div>
+          <p>The receiver used a photodiode to detect the incoming IR signal, with the decoded output shown on an LCD display mounted in the front face of the enclosure.</p>
+          <p>[Describe the receiving circuit — filtering, amplification, decoding logic.]</p>
+        </div>
+      </div>
     </section>
 
+    <div class="photo-grid two-col-photo">
+      <div>
+        <img src="images/ir-circuit-early.jpg" alt="Early circuit iteration" />
+        <p class="photo-caption">early circuit — Arduino Uno R3, breadboard, IR components</p>
+      </div>
+      <div>
+        <img src="images/ir-circuit-final.jpg" alt="Final circuit internals" />
+        <p class="photo-caption">final transmitter internals — dual 9V power, full wiring</p>
+      </div>
+    </div>
+
     <section>
-      <span class="section-label">04 — Results</span>
-      <h2>Outcome</h2>
-      <p>[How well did the final system perform? Signal quality, range achieved, any demo or evaluation result.]</p>
-      <p>[What would you change or improve?]</p>
+      <span class="section-label">03 — Testing</span>
+      <h2>Alignment & lab testing</h2>
+      <p>Testing involved aligning the transmitter beam with the receiver across a fixed distance. Acrylic prism mounts (labeled per team member) were used during lab testing sessions on the bench alongside oscilloscopes to verify signal quality.</p>
+      <p>[Add results — what range worked, signal clarity, any noise issues you had to solve.]</p>
+    </section>
+
+    <div class="photo-grid one-col">
+      <div>
+        <img src="images/ir-lab-testing.jpg" alt="Lab testing with prism mounts" />
+        <p class="photo-caption">lab testing — acrylic prism alignment mounts, oscilloscope verification</p>
+      </div>
+    </div>
+
+    <section>
+      <span class="section-label">04 — Report</span>
+      <h2>Final report</h2>
+      <p>[Brief summary of what the report covers — system design, results, analysis.]</p>
+      <a href="ek210_final_report.pdf" class="report-link" target="_blank">↓ read the full report</a>
     </section>
 
   </div>
 
   <footer>
-    <span>ashley [last name] · 2025</span>
+    <span>ashley dhar · 2026</span>
     <span class="footer-mark">made by me</span>
     <span>boston, ma</span>
   </footer>
-
 </body>
 </html>

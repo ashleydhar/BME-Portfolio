@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mars Rover — Ashley</title>
+  <title>Mars Rover — Ashley Dhar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28;
-      --wine-mid: #8c2637; --wine-pale: #e8d4d8;
-      --text: #1c120e; --muted: #7a6254; --border: #d9cbb8; --rule: #c4b09a;
-    }
+    :root { --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28; --wine-mid: #8c2637; --wine-pale: #e8d4d8; --text: #1c120e; --muted: #7a6254; --border: #d9cbb8; --rule: #c4b09a; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; border-bottom: 1.5px solid var(--border); }
@@ -34,9 +30,13 @@
     .section-label { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.25rem; }
     .project-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; font-style: italic; margin-bottom: 1rem; }
     .project-body p { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.9; margin-bottom: 1rem; max-width: 660px; }
-    .image-placeholder { background: var(--surface); border: 1px dashed var(--border); border-radius: 4px; height: 280px; display: flex; align-items: center; justify-content: center; margin: 2rem 0; }
-    .image-placeholder span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 2rem 0; }
+    .photo-grid.two-col-photo { grid-template-columns: repeat(2, 1fr); }
+    .photo-grid.one-col { grid-template-columns: 1fr; }
+    .photo-grid img { width: 100%; height: 260px; object-fit: cover; border-radius: 3px; display: block; background: var(--surface); }
+    .photo-grid.one-col img { height: 420px; }
+    .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); letter-spacing: 0.05em; margin-top: 0.5rem; }
     footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
     footer span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
     .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
@@ -44,15 +44,16 @@
       nav { padding: 1rem 1.5rem; } nav ul { gap: 1.25rem; }
       .project-hero, .project-body { padding-left: 1.5rem; padding-right: 1.5rem; }
       .project-hero { padding-top: 2.5rem; } .two-col { grid-template-columns: 1fr; gap: 2rem; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
-
   <nav>
-    <a href="index.html" class="nav-name">ashley [last name]</a>
+    <a href="index.html" class="nav-name">ashley dhar</a>
     <ul>
+      <li><a href="index.html#about">about</a></li>
       <li><a href="index.html#school">work</a></li>
       <li><a href="index.html#personal">personal</a></li>
       <li><a href="contact.html">contact</a></li>
@@ -62,14 +63,16 @@
 
   <div class="project-hero">
     <a href="index.html" class="back-link">← back to all work</a>
-    <div class="project-meta">ENG 1166 · UConn · 2022–23</div>
+    <div class="project-meta">ENG 1166 · UConn · 2023–24</div>
     <h1>Mars Rover —<br /><em>Housing & Circuit Design</em></h1>
     <p class="project-summary">
-      [One or two sentences summarizing the project — the housing design challenge, the circuit's purpose, and what you were responsible for.]
+      Designed and built the housing and electronics for an autonomous rover prototype — laser-cut plywood enclosure with a color-coded sensor system, LED matrix display, and Arduino-based control circuit.
     </p>
     <div class="tags-row">
       <span class="tag">circuits</span>
       <span class="tag">CAD</span>
+      <span class="tag">laser-cut</span>
+      <span class="tag">Arduino</span>
     </div>
   </div>
 
@@ -78,50 +81,71 @@
     <section>
       <span class="section-label">01 — Overview</span>
       <h2>The challenge</h2>
-      <p>[Describe the project context. Was this a competition? A class design challenge? What were the requirements the rover housing had to meet — durability, weight, size, terrain?]</p>
+      <p>[Describe the project — what the rover was supposed to do, what your team's specific responsibilities were for the housing and circuit design, and what the constraints were.]</p>
     </section>
 
-    <div class="image-placeholder">
-      <span>photo or CAD render of rover housing — add image here</span>
+    <div class="photo-grid two-col-photo">
+      <div>
+        <img src="images/rover-housing-clean.jpg" alt="Rover housing, empty" />
+        <p class="photo-caption">laser-cut plywood housing — empty structure</p>
+      </div>
+      <div>
+        <img src="images/rover-housing-complete.jpg" alt="Finished rover housing with LED matrix" />
+        <p class="photo-caption">finished housing with LED matrix and color-coded sensor doors</p>
+      </div>
     </div>
 
     <section>
       <span class="section-label">02 — Housing Design</span>
-      <h2>Structure & form</h2>
+      <h2>Structure</h2>
       <div class="two-col">
         <div>
-          <p>[Describe your CAD and design process for the housing. What software did you use? What were the key structural decisions?]</p>
+          <p>The enclosure was laser-cut from plywood with finger-joint construction. The design included hinged access doors on two sides, color-coded with yarn stitching (blue, pink, red) to indicate sensor orientation or team assignments.</p>
+          <p>[Describe your CAD process — what software, key design decisions, any iterations.]</p>
         </div>
         <div>
-          <p>[Materials, manufacturing method, how it was assembled or fabricated.]</p>
+          <p>An LED dot matrix mounted on top served as the output display. The two-tier structure separated the electronics compartment from the sensor housing below.</p>
+          <p>[Any other structural notes — dimensions, material thickness, assembly method.]</p>
         </div>
       </div>
     </section>
 
+    <div class="photo-grid one-col">
+      <div>
+        <img src="images/rover-both-units.jpg" alt="Both units side by side with electronics" />
+        <p class="photo-caption">both units side by side — electronics visible on top</p>
+      </div>
+    </div>
+
     <section>
-      <span class="section-label">03 — Circuit Design</span>
-      <h2>Electronics</h2>
-      <p>[Describe the circuit you designed. What did it control or sense? What components were central — microcontroller, sensors, motors, drivers?]</p>
-      <p>[Any interesting design choices, debugging moments, or things that didn't work as expected.]</p>
+      <span class="section-label">03 — Electronics</span>
+      <h2>Circuit & wiring</h2>
+      <p>[Describe the circuit inside — microcontroller, sensors, what the LED matrix displayed, how it was powered and controlled.]</p>
     </section>
 
-    <div class="image-placeholder">
-      <span>circuit schematic or photo — add image here</span>
+    <div class="photo-grid two-col-photo">
+      <div>
+        <img src="images/rover-circuit-early.jpg" alt="Early circuit prototype" />
+        <p class="photo-caption">early circuit prototype — breadboard and Arduino</p>
+      </div>
+      <div>
+        <img src="images/rover-circuit-final.jpg" alt="Final wiring inside housing" />
+        <p class="photo-caption">final internals — wiring packed into the housing</p>
+      </div>
     </div>
 
     <section>
       <span class="section-label">04 — Results</span>
       <h2>Outcome</h2>
-      <p>[How did the final rover perform? What did you learn from this project?]</p>
+      <p>[How did the final rover perform? What worked well, what would you change?]</p>
     </section>
 
   </div>
 
   <footer>
-    <span>ashley [last name] · 2025</span>
+    <span>ashley dhar · 2026</span>
     <span class="footer-mark">made by me</span>
     <span>boston, ma</span>
   </footer>
-
 </body>
 </html>

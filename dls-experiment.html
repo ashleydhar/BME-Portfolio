@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dynamic Light Scattering — Ashley</title>
+  <title>Dynamic Light Scattering — Ashley Dhar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
   <style>
@@ -30,11 +30,11 @@
     .section-label { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.25rem; }
     .project-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; font-style: italic; margin-bottom: 1rem; }
     .project-body p { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.9; margin-bottom: 1rem; max-width: 660px; }
-    .image-placeholder { background: var(--surface); border: 1px dashed var(--border); border-radius: 4px; height: 280px; display: flex; align-items: center; justify-content: center; margin: 2rem 0; }
-    .image-placeholder span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .findings-box { background: var(--surface); border-left: 3px solid var(--wine); padding: 1.5rem; border-radius: 0 4px 4px 0; max-width: 660px; margin: 1.5rem 0; }
     .findings-box p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--text); line-height: 1.7; margin: 0; max-width: none; }
+    .report-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cutive Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; margin-top: 1rem; }
+    .report-link:hover { background: var(--wine); color: var(--bg); }
     footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
     footer span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
     .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
@@ -47,10 +47,10 @@
   </style>
 </head>
 <body>
-
   <nav>
-    <a href="index.html" class="nav-name">ashley [last name]</a>
+    <a href="index.html" class="nav-name">ashley dhar</a>
     <ul>
+      <li><a href="index.html#about">about</a></li>
       <li><a href="index.html#school">work</a></li>
       <li><a href="index.html#personal">personal</a></li>
       <li><a href="contact.html">contact</a></li>
@@ -63,7 +63,7 @@
     <div class="project-meta">BE 493 · Boston University · 2024–25</div>
     <h1>Dynamic Light<br /><em>Scattering Experiment</em></h1>
     <p class="project-summary">
-      Used a Litesizer instrument to characterize [particle/sample type] via DLS. [What were you measuring and what did it tell you about the sample?]
+      Used a Litesizer instrument to characterize [particle/sample type] via DLS, measuring hydrodynamic diameter and polydispersity index, and wrote a full lab report on the findings.
     </p>
     <div class="tags-row">
       <span class="tag">DLS</span>
@@ -77,8 +77,8 @@
     <section>
       <span class="section-label">01 — Background</span>
       <h2>What is DLS?</h2>
-      <p>Dynamic light scattering measures the Brownian motion of particles in suspension by analyzing fluctuations in scattered laser light. From this, it determines the hydrodynamic diameter and polydispersity index (PDI) of the sample.</p>
-      <p>[Expand with any specific background relevant to your experiment — why DLS is useful for this type of sample, what properties you expected to find.]</p>
+      <p>Dynamic light scattering measures the Brownian motion of particles in suspension by analyzing fluctuations in scattered laser light. From this, it derives the hydrodynamic diameter and polydispersity index (PDI) of the sample — key characterization metrics for nanoparticles and colloids.</p>
+      <p>[Add context specific to your experiment — why DLS was the appropriate technique for your sample, what you expected to find.]</p>
     </section>
 
     <section>
@@ -86,43 +86,38 @@
       <h2>Method</h2>
       <div class="two-col">
         <div>
-          <p>[Describe your sample preparation. What was the particle or material? What concentration, solvent, temperature?]</p>
-          <p>[Instrument settings — angle, number of runs, any filters used.]</p>
+          <p>[Describe your sample — what was it, what concentration, what solvent, what temperature? How did you prepare it?]</p>
+          <p>[Instrument settings — measurement angle, number of runs, any filters or controls used.]</p>
         </div>
         <div>
-          <p>[What controls or comparisons did you run? Any challenges with sample preparation or measurement?]</p>
+          <p>[What comparisons or controls did you run? Any challenges in sample preparation or during measurement?]</p>
         </div>
       </div>
     </section>
-
-    <div class="image-placeholder">
-      <span>DLS size distribution plot or lab setup photo — add image here</span>
-    </div>
 
     <section>
       <span class="section-label">03 — Findings</span>
       <h2>Key results</h2>
-      <p>[Summarize your quantitative findings — hydrodynamic diameter, PDI, any concentration or temperature dependence.]</p>
+      <p>[Summarize your quantitative findings — hydrodynamic diameter, PDI value, any trends across conditions.]</p>
       <div class="findings-box">
-        <p>"[Pull out one key finding or conclusion from your paper as a quote or summary here.]"</p>
+        <p>"[Pull a key finding or conclusion from your report here.]"</p>
       </div>
-      <p>[Discuss what the data means — did the results match expected values? Were there anomalies?]</p>
+      <p>[Discuss what the data means — did results match expected values? Were there anomalies, and what might explain them?]</p>
     </section>
 
     <section>
-      <span class="section-label">04 — Written Work</span>
+      <span class="section-label">04 — Report</span>
       <h2>The paper</h2>
-      <p>[Brief description of the lab report you wrote — what it covered, what your argument or conclusion was, anything you're proud of in the writing.]</p>
-      <p>[If you want to link or share the report, add a link here.]</p>
+      <p>[Brief description of what the report covers — structure, argument, what you're proud of in the writing.]</p>
+      <a href="be493_final_report_third.pdf" class="report-link" target="_blank">↓ read the full report</a>
     </section>
 
   </div>
 
   <footer>
-    <span>ashley [last name] · 2025</span>
+    <span>ashley dhar · 2026</span>
     <span class="footer-mark">made by me</span>
     <span>boston, ma</span>
   </footer>
-
 </body>
 </html>

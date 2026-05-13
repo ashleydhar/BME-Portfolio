@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume — Ashley</title>
+  <title>Resume — Ashley Dhar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
   <style>
@@ -18,30 +18,14 @@
     nav a:hover { color: var(--wine); }
     .page-wrap { max-width: 980px; margin: 0 auto; padding: 5rem 3rem 6rem; }
     .page-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2.5rem; }
-    .page-header-left { }
     .page-vol { font-family: 'Cutive Mono', monospace; font-size: 0.7rem; color: var(--muted); letter-spacing: 0.08em; display: block; margin-bottom: 1rem; }
     .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1.1; }
     .page-header h1 em { font-style: italic; color: var(--wine); }
-    .download-btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: 'Cutive Mono', monospace; font-size: 0.65rem;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--wine); border: 1px solid var(--wine);
-      padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
+    .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cutive Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; }
     .download-btn:hover { background: var(--wine); color: var(--bg); }
-
     .resume-body { display: grid; grid-template-columns: 200px 1fr; gap: 0 4rem; }
-    .resume-section { display: contents; }
-    .resume-section-label {
-      font-family: 'Cutive Mono', monospace; font-size: 0.62rem;
-      color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase;
-      padding-top: 0.3rem; padding-bottom: 3rem;
-    }
+    .resume-section-label { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; padding-top: 0.3rem; padding-bottom: 3rem; }
     .resume-section-content { padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
-    .resume-section:last-child .resume-section-content { border-bottom: none; }
-
     .resume-entry { margin-bottom: 2rem; }
     .resume-entry:last-child { margin-bottom: 0; }
     .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem; }
@@ -49,10 +33,8 @@
     .entry-date { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); white-space: nowrap; }
     .entry-org { font-size: 0.8rem; color: var(--wine); font-weight: 400; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
     .entry-desc { font-size: 0.875rem; color: var(--muted); font-weight: 300; line-height: 1.8; }
-
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; }
     .skill-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 0.4rem 0.75rem; font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em; }
-
     footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
     footer span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
     .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
@@ -61,17 +43,17 @@
       .page-wrap { padding: 3rem 1.5rem; }
       .page-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
       .resume-body { grid-template-columns: 1fr; }
-      .resume-section-label { padding-bottom: 0.5rem; font-size: 0.7rem; }
+      .resume-section-label { padding-bottom: 0.5rem; }
       .resume-section-content { border-bottom: none; padding-bottom: 2rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
-
   <nav>
-    <a href="index.html" class="nav-name">ashley [last name]</a>
+    <a href="index.html" class="nav-name">ashley dhar</a>
     <ul>
+      <li><a href="index.html#about">about</a></li>
       <li><a href="index.html#school">work</a></li>
       <li><a href="index.html#personal">personal</a></li>
       <li><a href="contact.html">contact</a></li>
@@ -81,17 +63,15 @@
 
   <div class="page-wrap">
     <div class="page-header">
-      <div class="page-header-left">
+      <div>
         <span class="page-vol">curriculum vitae</span>
-        <h1>Ashley<br /><em>[Last Name]</em></h1>
+        <h1>Ashley<br /><em>Dhar</em></h1>
       </div>
-      <!-- Replace # with the path to your actual resume PDF once uploaded -->
       <a href="#" class="download-btn">↓ download pdf</a>
     </div>
 
     <div class="resume-body">
 
-      <!-- EDUCATION -->
       <div class="resume-section-label">Education</div>
       <div class="resume-section-content">
         <div class="resume-entry">
@@ -108,11 +88,10 @@
             <span class="entry-date">2022 — 2023</span>
           </div>
           <div class="entry-org">Engineering · Transferred to BU</div>
-          <div class="entry-desc">[Any relevant notes about your time at UConn.]</div>
+          <div class="entry-desc">Started as BME, transferred to BU and initially declared neuroscience before returning to BME end of sophomore year.</div>
         </div>
       </div>
 
-      <!-- EXPERIENCE -->
       <div class="resume-section-label">Experience</div>
       <div class="resume-section-content">
         <div class="resume-entry">
@@ -123,17 +102,8 @@
           <div class="entry-org">[Organization / Lab / Company]</div>
           <div class="entry-desc">[What you did, what you built or contributed, any impact or outcome.]</div>
         </div>
-        <div class="resume-entry">
-          <div class="entry-header">
-            <span class="entry-title">[Role Title]</span>
-            <span class="entry-date">[dates]</span>
-          </div>
-          <div class="entry-org">[Organization]</div>
-          <div class="entry-desc">[Description.]</div>
-        </div>
       </div>
 
-      <!-- PROJECTS -->
       <div class="resume-section-label">Selected Projects</div>
       <div class="resume-section-content">
         <div class="resume-entry">
@@ -142,24 +112,33 @@
             <span class="entry-date">2024–25</span>
           </div>
           <div class="entry-org">EK 210 · Boston University</div>
-          <div class="entry-desc">Designed and built a point-to-point infrared optical communication system. [One line result or highlight.]</div>
+          <div class="entry-desc">Designed and built a two-unit point-to-point infrared optical communication system with laser-cut MDF enclosures, Arduino electronics, and a rotating LED transmitter.</div>
+        </div>
+        <div class="resume-entry">
+          <div class="entry-header">
+            <span class="entry-title">Truss Structural Analysis</span>
+            <span class="entry-date">2024–25</span>
+          </div>
+          <div class="entry-org">EK 301 · Boston University</div>
+          <div class="entry-desc">Applied method of joints and sections to predict member forces; compared analytical results against experimental measurements.</div>
         </div>
         <div class="resume-entry">
           <div class="entry-header">
             <span class="entry-title">Mars Rover Housing & Circuit Design</span>
-            <span class="entry-date">2022–23</span>
+            <span class="entry-date">2023–24</span>
           </div>
           <div class="entry-org">ENG 1166 · UConn</div>
-          <div class="entry-desc">Designed housing structure and circuit for an autonomous rover. [One line highlight.]</div>
+          <div class="entry-desc">Designed laser-cut plywood housing and Arduino-based circuit for an autonomous rover prototype.</div>
         </div>
       </div>
 
-      <!-- SKILLS -->
       <div class="resume-section-label">Skills</div>
       <div class="resume-section-content">
         <div class="skills-grid">
           <span class="skill-chip">Circuit design</span>
+          <span class="skill-chip">Arduino</span>
           <span class="skill-chip">CAD</span>
+          <span class="skill-chip">Laser cutting</span>
           <span class="skill-chip">MATLAB</span>
           <span class="skill-chip">Python</span>
           <span class="skill-chip">Lab instrumentation</span>
@@ -173,10 +152,9 @@
   </div>
 
   <footer>
-    <span>ashley [last name] · 2025</span>
+    <span>ashley dhar · 2026</span>
     <span class="footer-mark">made by me</span>
     <span>boston, ma</span>
   </footer>
-
 </body>
 </html>
