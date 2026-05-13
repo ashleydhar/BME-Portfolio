@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashley — Engineering Portfolio</title>
+  <title>Ashley Dhar — Engineering Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
   <style>
@@ -330,6 +330,65 @@
       color: var(--wine);
     }
 
+    .about-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 4rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .about-wrap h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-main p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .about-main p:last-child { margin-bottom: 0; }
+
+    .about-aside {
+      padding-top: 0.25rem;
+    }
+
+    .aside-block {
+      margin-bottom: 2rem;
+    }
+
+    .aside-block:last-child { margin-bottom: 0; }
+
+    .aside-label {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--rule);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .aside-block p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 680px) {
+      .about-wrap { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
+    }
+
     @media (max-width: 680px) {
       nav { padding: 1rem 1.5rem; }
       nav ul { gap: 1.25rem; }
@@ -348,8 +407,9 @@
 <body>
 
   <nav>
-    <span class="nav-name">ashley [last name]</span>
+    <span class="nav-name">ashley dhar</span>
     <ul>
+      <li><a href="#about">about</a></li>
       <li><a href="#school">work</a></li>
       <li><a href="#personal">personal</a></li>
       <li><a href="#contact">contact</a></li>
@@ -363,14 +423,52 @@
     </div>
     <div class="hero-right">
       <p>
-        I'm a biomedical engineering student interested in [what draws you in — devices, circuits, biophysics, design].
-        This site collects the work I'm most proud of from school and outside it.
+        I'm a biomedical engineering student at Boston University interested in the space where biology meets design.
+        This site collects the work I'm most proud of — from school and outside it.
       </p>
     </div>
   </div>
 
   <div class="hero-divider">
     <hr /><span>est. 2023</span><hr />
+  </div>
+
+  <div class="about-wrap" id="about">
+    <div class="about-main">
+      <h2>About me</h2>
+      <p>
+        When I was little, my dad worked in IT at Alexion — a pharmaceutical company in CT — back before it became the giant it is now.
+        One bring-your-child-to-work day, they had the kids extract DNA from a strawberry. I don't remember much from being that young,
+        but I remember that.
+      </p>
+      <p>
+        It stuck with me in a way that's hard to explain. I ended up at BU studying biomedical engineering,
+        which feels like the long answer to why. I like problems that sit at the edge of biology and design —
+        where figuring something out actually means something.
+      </p>
+      <p>
+        Outside of engineering, I write fiction, go on hikes, and spend probably too much time in open world video games.
+        I grew up in Connecticut, about an hour outside of New York.
+      </p>
+    </div>
+    <div class="about-aside">
+      <div class="aside-block">
+        <span class="aside-label">currently</span>
+        <p>Junior at Boston University<br />B.S. Biomedical Engineering, class of 2027</p>
+      </div>
+      <div class="aside-block">
+        <span class="aside-label">from</span>
+        <p>Connecticut — an hour outside of New York City</p>
+      </div>
+      <div class="aside-block">
+        <span class="aside-label">outside of work</span>
+        <p>Creative writing, open world games, hiking</p>
+      </div>
+      <div class="aside-block">
+        <span class="aside-label">background</span>
+        <p>Started at UConn, transferred to BU and declared BME sophomore year</p>
+      </div>
+    </div>
   </div>
 
   <div class="section-wrap" id="school">
@@ -489,7 +587,7 @@
   </div>
 
   <footer>
-    <span>ashley [last name] · 2025</span>
+    <span>ashley dhar · 2025</span>
     <span class="footer-mark">made by me</span>
     <span>boston, ma</span>
   </footer>
