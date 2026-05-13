@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28; --wine-mid: #8c2637; --wine-pale: #e8d4d8; --text: #1c120e; --muted: #4a3728; --border: #d9cbb8; --rule: #c4b09a; }
+    :root { --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28; --wine-mid: #8c2637; --wine-pale: #e8d4d8; --text: #1c120e; --muted: #4a3728; --border: #d9cbb8; --rule: #7a5c48; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; border-bottom: 1.5px solid var(--border); }
@@ -18,25 +18,25 @@
     nav a:hover { color: var(--wine); }
     .page-wrap { max-width: 980px; margin: 0 auto; padding: 5rem 3rem 6rem; }
     .page-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2.5rem; }
-    .page-vol { font-family: 'Cutive Mono', monospace; font-size: 0.7rem; color: var(--muted); letter-spacing: 0.08em; display: block; margin-bottom: 1rem; }
+    .page-vol { font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.08em; display: block; margin-bottom: 1rem; }
     .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1.1; }
     .page-header h1 em { font-style: italic; color: var(--wine); }
-    .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cutive Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; }
     .download-btn:hover { background: var(--wine); color: var(--bg); }
     .resume-body { display: grid; grid-template-columns: 200px 1fr; gap: 0 4rem; }
-    .resume-section-label { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; padding-top: 0.3rem; padding-bottom: 3rem; }
+    .resume-section-label { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; padding-top: 0.3rem; padding-bottom: 3rem; }
     .resume-section-content { padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
     .resume-entry { margin-bottom: 2rem; }
     .resume-entry:last-child { margin-bottom: 0; }
     .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem; }
     .entry-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; }
-    .entry-date { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); white-space: nowrap; }
+    .entry-date { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; color: var(--rule); white-space: nowrap; }
     .entry-org { font-size: 0.8rem; color: var(--wine); font-weight: 400; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
     .entry-desc { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.8; }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; }
-    .skill-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 0.4rem 0.75rem; font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em; }
+    .skill-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 0.4rem 0.75rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
     footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
-    footer span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
+    footer span { font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--rule); letter-spacing: 0.05em; }
     .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
     @media (max-width: 680px) {
       nav { padding: 1rem 1.5rem; } nav ul { gap: 1.25rem; }

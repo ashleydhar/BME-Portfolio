@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28; --wine-mid: #8c2637; --wine-pale: #e8d4d8; --text: #1c120e; --muted: #4a3728; --border: #d9cbb8; --rule: #c4b09a; }
+    :root { --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28; --wine-mid: #8c2637; --wine-pale: #e8d4d8; --text: #1c120e; --muted: #4a3728; --border: #d9cbb8; --rule: #7a5c48; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; border-bottom: 1.5px solid var(--border); }
@@ -17,34 +17,34 @@
     nav a { text-decoration: none; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
     nav a:hover { color: var(--wine); }
     .project-hero { max-width: 980px; margin: 0 auto; padding: 5rem 3rem 3rem; border-bottom: 1px solid var(--border); }
-    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; margin-bottom: 2rem; transition: color 0.2s; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; margin-bottom: 2rem; transition: color 0.2s; }
     .back-link:hover { color: var(--wine); }
-    .project-meta { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 1rem; }
+    .project-meta { font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 1rem; }
     .project-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
     .project-hero h1 em { font-style: italic; color: var(--wine); }
     .project-summary { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.8; max-width: 600px; border-left: 2px solid var(--wine-pale); padding-left: 1.25rem; }
     .tags-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 2rem; }
-    .tag { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; background: var(--wine-pale); color: var(--wine); padding: 0.2rem 0.5rem; border-radius: 2px; white-space: nowrap; }
+    .tag { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; background: var(--wine-pale); color: var(--wine); padding: 0.2rem 0.5rem; border-radius: 2px; white-space: nowrap; }
     .project-body { max-width: 980px; margin: 0 auto; padding: 4rem 3rem; }
     .project-body section { margin-bottom: 4rem; }
-    .section-label { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.25rem; }
+    .section-label { font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.25rem; }
     .project-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; font-style: italic; margin-bottom: 1rem; }
     .project-body p { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.9; margin-bottom: 1rem; max-width: 660px; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 2rem 0; }
     .photo-grid.two-col-photo { grid-template-columns: repeat(2, 1fr); }
     .photo-grid.one-col { grid-template-columns: 1fr; }
-    .photo-grid img { width: 100%; height: 240px; object-fit: cover; border-radius: 3px; display: block; background: var(--surface); }
-    .photo-grid.one-col img { height: 400px; }
-    .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); letter-spacing: 0.05em; margin-top: 0.5rem; }
+    .photo-grid img { width: 100%; height: auto; object-fit: contain; border-radius: 3px; display: block; background: var(--surface); }
+    .photo-grid.one-col img { height: auto; }
+    .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; color: var(--rule); letter-spacing: 0.05em; margin-top: 0.5rem; }
     .spec-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; }
-    .spec-block dt { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem; margin-top: 1rem; }
+    .spec-block dt { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; color: var(--rule); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem; margin-top: 1rem; }
     .spec-block dt:first-child { margin-top: 0; }
     .spec-block dd { font-size: 0.95rem; color: var(--text); font-weight: 300; }
-    .report-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cutive Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; margin-top: 1rem; display: inline-flex; }
+    .report-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; margin-top: 1rem; display: inline-flex; }
     .report-link:hover { background: var(--wine); color: var(--bg); }
     footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
-    footer span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
+    footer span { font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--rule); letter-spacing: 0.05em; }
     .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
     @media (max-width: 680px) {
       nav { padding: 1rem 1.5rem; } nav ul { gap: 1.25rem; }
