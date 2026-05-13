@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashley — Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f0e6d0;
+      --surface:   #f7f0e4;
+      --wine:      #6b1a28;
+      --wine-mid:  #8c2637;
+      --wine-pale: #e8d4d8;
+      --text:      #1c120e;
+      --muted:     #7a6254;
+      --border:    #d9cbb8;
+      --rule:      #c4b09a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--wine);
+    }
+
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--wine); }
+
+    .hero {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 5rem 3rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 4rem;
+      align-items: end;
+    }
+
+    .hero-vol {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--wine);
+    }
+
+    .hero-right p {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.8;
+      border-left: 2px solid var(--wine-pale);
+      padding-left: 1.25rem;
+    }
+
+    .hero-divider {
+      max-width: 980px;
+      margin: 3rem auto 0;
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-divider hr { flex: 1; border: none; border-top: 1px solid var(--rule); }
+
+    .hero-divider span {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--rule);
+      letter-spacing: 0.05em;
+    }
+
+    .section-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 4rem 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .section-header hr { flex: 1; border: none; border-top: 1px solid var(--rule); }
+
+    .year-group {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .year-aside { text-align: right; padding-top: 0.2rem; }
+
+    .year-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--wine);
+      line-height: 1;
+      display: block;
+    }
+
+    .year-label {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--muted);
+      display: block;
+      margin-top: 0.3rem;
+      line-height: 1.5;
+    }
+
+    .projects-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .project-row {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .project-row:hover .project-title { color: var(--wine); }
+
+    .project-course {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      line-height: 1.3;
+      transition: color 0.2s;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.3rem;
+      padding-top: 1.4rem;
+    }
+
+    .tag {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.62rem;
+      background: var(--wine-pale);
+      color: var(--wine);
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .personal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .personal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .personal-card:hover { border-color: var(--wine-mid); }
+
+    .personal-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .personal-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .placeholder-card {
+      border-style: dashed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      opacity: 0.5;
+    }
+
+    .placeholder-card p {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    .contact-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-block > p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .contact-links a:hover { color: var(--wine); }
+
+    .link-label {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--rule);
+      width: 56px;
+      letter-spacing: 0.05em;
+    }
+
+    footer {
+      border-top: 1.5px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer span {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--rule);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--wine);
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 1rem 1.5rem; }
+      nav ul { gap: 1.25rem; }
+      .hero { padding: 2.5rem 1.5rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
+      .hero-divider { padding: 0 1.5rem; }
+      .section-wrap { padding: 3rem 1.5rem; }
+      .year-group { grid-template-columns: 60px 1fr; gap: 0 1.5rem; }
+      .year-num { font-size: 2rem; }
+      .project-row { grid-template-columns: 1fr; }
+      .project-tags { flex-direction: row; flex-wrap: wrap; padding-top: 0.5rem; }
+      .contact-block { grid-template-columns: 1fr; gap: 2rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-name">ashley [last name]</span>
+    <ul>
+      <li><a href="#school">work</a></li>
+      <li><a href="#personal">personal</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-left">
+      <span class="hero-vol">BME · Boston University · class of '27</span>
+      <h1>Engineering<br /><em>things I</em><br />care about.</h1>
+    </div>
+    <div class="hero-right">
+      <p>
+        I'm a biomedical engineering student interested in [what draws you in — devices, circuits, biophysics, design].
+        This site collects the work I'm most proud of from school and outside it.
+      </p>
+    </div>
+  </div>
+
+  <div class="hero-divider">
+    <hr /><span>est. 2023</span><hr />
+  </div>
+
+  <div class="section-wrap" id="school">
+    <div class="section-header">
+      <h2>School projects</h2><hr />
+    </div>
+
+    <div class="year-group">
+      <div class="year-aside">
+        <span class="year-num">1</span>
+        <span class="year-label">UConn<br />2022–23</span>
+      </div>
+      <div class="projects-list">
+        <div class="project-row">
+          <div>
+            <div class="project-course">ENG 1000</div>
+            <div class="project-title">Engineering Catapult</div>
+            <div class="project-desc">[What did you build, what were the constraints, what did it launch and how far?]</div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">mechanical</span>
+            <span class="tag">prototyping</span>
+          </div>
+        </div>
+        <div class="project-row">
+          <div>
+            <div class="project-course">ENG 1166</div>
+            <div class="project-title">Mars Rover — Housing & Circuit Design</div>
+            <div class="project-desc">[Describe the housing design and circuit work. What was the design challenge? What did the circuit control or sense?]</div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">circuits</span>
+            <span class="tag">CAD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-group">
+      <div class="year-aside">
+        <span class="year-num">3</span>
+        <span class="year-label">BU<br />2024–25</span>
+      </div>
+      <div class="projects-list">
+        <div class="project-row">
+          <div>
+            <div class="project-course">EK 210</div>
+            <div class="project-title">Point-to-Point IR Communication System</div>
+            <div class="project-desc">Designed and built an infrared optical communication system for transmitting signals between two endpoints. [Add specifics — what modulation, what range, any interesting circuit choices.]</div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">optical comms</span>
+            <span class="tag">circuits</span>
+          </div>
+        </div>
+        <div class="project-row">
+          <div>
+            <div class="project-course">EK 301</div>
+            <div class="project-title">Truss Structural Analysis</div>
+            <div class="project-desc">[Loading conditions, method of joints/sections, predicted vs. actual results — whatever was interesting about it.]</div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">statics</span>
+            <span class="tag">structural</span>
+          </div>
+        </div>
+        <div class="project-row">
+          <div>
+            <div class="project-course">BE 493</div>
+            <div class="project-title">Dynamic Light Scattering Experiment</div>
+            <div class="project-desc">Used a Litesizer instrument to characterize [particle/sample type] via DLS. [What did you measure, what were the key findings in your paper?]</div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">DLS</span>
+            <span class="tag">lab</span>
+            <span class="tag">writing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrap" id="personal" style="border-top: 1px solid var(--border);">
+    <div class="section-header">
+      <h2>Personal projects</h2><hr />
+    </div>
+    <div class="personal-grid">
+      <div class="personal-card">
+        <h3>Project name</h3>
+        <p>[What it is and why you built it.]</p>
+      </div>
+      <div class="personal-card placeholder-card">
+        <p>more soon</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrap" id="contact" style="border-top: 1px solid var(--border);">
+    <div class="section-header">
+      <h2>Say hello</h2><hr />
+    </div>
+    <div class="contact-block">
+      <p>Open to internships, research, and conversations about work that matters.</p>
+      <div class="contact-links">
+        <a href="mailto:you@bu.edu">
+          <span class="link-label">email</span>you@bu.edu
+        </a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">
+          <span class="link-label">linkedin</span>/in/yourprofile
+        </a>
+        <a href="https://github.com/yourusername" target="_blank">
+          <span class="link-label">github</span>/yourusername
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>ashley [last name] · 2025</span>
+    <span class="footer-mark">made by me</span>
+    <span>boston, ma</span>
+  </footer>
+
+</body>
+</html>
