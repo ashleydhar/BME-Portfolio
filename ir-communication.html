@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28; --wine-mid: #8c2637; --wine-pale: #e8d4d8; --text: #1c120e; --muted: #7a6254; --border: #d9cbb8; --rule: #c4b09a; }
+    :root { --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28; --wine-mid: #8c2637; --wine-pale: #e8d4d8; --text: #1c120e; --muted: #4a3728; --border: #d9cbb8; --rule: #c4b09a; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; border-bottom: 1.5px solid var(--border); }
@@ -40,7 +40,7 @@
     .spec-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; }
     .spec-block dt { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem; margin-top: 1rem; }
     .spec-block dt:first-child { margin-top: 0; }
-    .spec-block dd { font-size: 0.9rem; color: var(--text); font-weight: 300; }
+    .spec-block dd { font-size: 0.95rem; color: var(--text); font-weight: 300; }
     .report-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cutive Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; margin-top: 1rem; display: inline-flex; }
     .report-link:hover { background: var(--wine); color: var(--bg); }
     footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
@@ -125,36 +125,11 @@
       </div>
     </section>
 
-    <div class="photo-grid two-col-photo">
-      <div>
-        <img src="images/ir-circuit-early.jpg" alt="Early circuit iteration" />
-        <p class="photo-caption">early circuit — Arduino Uno R3, breadboard, IR components</p>
-      </div>
-      <div>
-        <img src="images/ir-circuit-final.jpg" alt="Final circuit internals" />
-        <p class="photo-caption">final transmitter internals — dual 9V power, full wiring</p>
-      </div>
-    </div>
-
     <section>
-      <span class="section-label">03 — Testing</span>
-      <h2>Alignment & lab testing</h2>
-      <p>Testing involved aligning the transmitter beam with the receiver across a fixed distance. Acrylic prism mounts (labeled per team member) were used during lab testing sessions on the bench alongside oscilloscopes to verify signal quality.</p>
-      <p>[Add results — what range worked, signal clarity, any noise issues you had to solve.]</p>
-    </section>
-
-    <div class="photo-grid one-col">
-      <div>
-        <img src="images/ir-lab-testing.jpg" alt="Lab testing with prism mounts" />
-        <p class="photo-caption">lab testing — acrylic prism alignment mounts, oscilloscope verification</p>
-      </div>
-    </div>
-
-    <section>
-      <span class="section-label">04 — Report</span>
+      <span class="section-label">03 — Report</span>
       <h2>Final report</h2>
       <p>[Brief summary of what the report covers — system design, results, analysis.]</p>
-      <a href="assets/ek210_final_report.pdf" class="report-link" target="_blank">↓ read the full report</a>
+      <a href="ek210_final_report.pdf" class="report-link" target="_blank">↓ read the full report</a>
     </section>
 
   </div>
