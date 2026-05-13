@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Ashley</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28; --wine-mid: #8c2637; --wine-pale: #e8d4d8; --text: #1c120e; --muted: #7a6254; --border: #d9cbb8; --rule: #c4b09a; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; border-bottom: 1.5px solid var(--border); }
+    .nav-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; color: var(--wine); text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a { text-decoration: none; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    nav a:hover { color: var(--wine); }
+    .page-wrap { max-width: 980px; margin: 0 auto; padding: 6rem 3rem 4rem; flex: 1; }
+    .page-vol { font-family: 'Cutive Mono', monospace; font-size: 0.7rem; color: var(--muted); letter-spacing: 0.08em; display: block; margin-bottom: 1.5rem; }
+    .page-wrap h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 7vw, 5rem); font-weight: 300; line-height: 1.0; margin-bottom: 4rem; }
+    .page-wrap h1 em { font-style: italic; color: var(--wine); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-intro { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; font-style: italic; line-height: 1.8; color: var(--text); margin-bottom: 2rem; }
+    .contact-note { font-size: 0.9rem; color: var(--muted); font-weight: 300; line-height: 1.8; }
+    .contact-links { display: flex; flex-direction: column; gap: 1.5rem; padding-top: 0.5rem; }
+    .contact-item { display: flex; flex-direction: column; gap: 0.25rem; }
+    .contact-item-label { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; }
+    .contact-item a { text-decoration: none; font-size: 0.95rem; color: var(--text); font-weight: 300; transition: color 0.2s; }
+    .contact-item a:hover { color: var(--wine); }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+    footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+    footer span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
+    .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
+    @media (max-width: 680px) {
+      nav { padding: 1rem 1.5rem; } nav ul { gap: 1.25rem; }
+      .page-wrap { padding: 3rem 1.5rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-name">ashley [last name]</a>
+    <ul>
+      <li><a href="index.html#school">work</a></li>
+      <li><a href="index.html#personal">personal</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><a href="resume.html">resume</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+    <span class="page-vol">get in touch</span>
+    <h1>Say<br /><em>hello.</em></h1>
+
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">Open to internships, research, and conversations about work that matters.</p>
+        <p class="contact-note">I'm a BME student at Boston University interested in [your focus area]. If you're working on something interesting — in a lab, a company, or on your own — I'd love to hear about it.</p>
+      </div>
+
+      <div class="contact-links">
+        <div class="contact-item">
+          <span class="contact-item-label">email</span>
+          <a href="mailto:you@bu.edu">you@bu.edu</a>
+        </div>
+        <hr class="divider" />
+        <div class="contact-item">
+          <span class="contact-item-label">linkedin</span>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
+        </div>
+        <hr class="divider" />
+        <div class="contact-item">
+          <span class="contact-item-label">github</span>
+          <a href="https://github.com/ashleydhar" target="_blank">github.com/ashleydhar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>ashley [last name] · 2025</span>
+    <span class="footer-mark">made by me</span>
+    <span>boston, ma</span>
+  </footer>
+
+</body>
+</html>

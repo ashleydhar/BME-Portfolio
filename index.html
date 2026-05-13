@@ -44,6 +44,7 @@
       font-style: italic;
       font-weight: 300;
       color: var(--wine);
+      text-decoration: none;
     }
 
     nav ul { list-style: none; display: flex; gap: 2rem; }
@@ -118,6 +119,57 @@
       letter-spacing: 0.05em;
     }
 
+    /* About section */
+    .about-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 4rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .about-wrap h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-main p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .about-main p:last-child { margin-bottom: 0; }
+
+    .about-aside { padding-top: 0.25rem; }
+
+    .aside-block { margin-bottom: 2rem; }
+    .aside-block:last-child { margin-bottom: 0; }
+
+    .aside-label {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--rule);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .aside-block p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
     .section-wrap {
       max-width: 980px;
       margin: 0 auto;
@@ -168,9 +220,7 @@
       line-height: 1.5;
     }
 
-    .projects-list {
-      border-top: 1px solid var(--border);
-    }
+    .projects-list { border-top: 1px solid var(--border); }
 
     .project-row {
       padding: 1.5rem 0;
@@ -179,9 +229,12 @@
       grid-template-columns: 1fr auto;
       gap: 1rem;
       align-items: start;
+      text-decoration: none;
+      color: inherit;
     }
 
     .project-row:hover .project-title { color: var(--wine); }
+    .project-row:hover .project-arrow { opacity: 1; }
 
     .project-course {
       font-family: 'Cutive Mono', monospace;
@@ -208,12 +261,19 @@
       max-width: 560px;
     }
 
-    .project-tags {
+    .project-right {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       gap: 0.3rem;
       padding-top: 1.4rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.3rem;
     }
 
     .tag {
@@ -224,6 +284,16 @@
       padding: 0.2rem 0.5rem;
       border-radius: 2px;
       white-space: nowrap;
+    }
+
+    .project-arrow {
+      font-size: 0.75rem;
+      color: var(--wine);
+      opacity: 0;
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+      font-family: 'Cutive Mono', monospace;
+      letter-spacing: 0.05em;
     }
 
     .personal-grid {
@@ -238,6 +308,9 @@
       border-radius: 4px;
       padding: 1.5rem;
       transition: border-color 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .personal-card:hover { border-color: var(--wine-mid); }
@@ -263,6 +336,7 @@
       justify-content: center;
       min-height: 100px;
       opacity: 0.5;
+      cursor: default;
     }
 
     .placeholder-card p {
@@ -330,75 +404,17 @@
       color: var(--wine);
     }
 
-    .about-wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 4rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .about-wrap h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      font-style: italic;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-main p {
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.85;
-      color: var(--text);
-      margin-bottom: 1rem;
-    }
-
-    .about-main p:last-child { margin-bottom: 0; }
-
-    .about-aside {
-      padding-top: 0.25rem;
-    }
-
-    .aside-block {
-      margin-bottom: 2rem;
-    }
-
-    .aside-block:last-child { margin-bottom: 0; }
-
-    .aside-label {
-      font-family: 'Cutive Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--rule);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 0.6rem;
-    }
-
-    .aside-block p {
-      font-size: 0.875rem;
-      color: var(--muted);
-      font-weight: 300;
-      line-height: 1.7;
-    }
-
-    @media (max-width: 680px) {
-      .about-wrap { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
-    }
-
     @media (max-width: 680px) {
       nav { padding: 1rem 1.5rem; }
       nav ul { gap: 1.25rem; }
       .hero { padding: 2.5rem 1.5rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
       .hero-divider { padding: 0 1.5rem; }
+      .about-wrap { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
       .section-wrap { padding: 3rem 1.5rem; }
       .year-group { grid-template-columns: 60px 1fr; gap: 0 1.5rem; }
       .year-num { font-size: 2rem; }
       .project-row { grid-template-columns: 1fr; }
-      .project-tags { flex-direction: row; flex-wrap: wrap; padding-top: 0.5rem; }
+      .project-right { flex-direction: row; flex-wrap: wrap; padding-top: 0.5rem; align-items: center; }
       .contact-block { grid-template-columns: 1fr; gap: 2rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
@@ -407,12 +423,13 @@
 <body>
 
   <nav>
-    <span class="nav-name">ashley dhar</span>
+    <a href="index.html" class="nav-name">ashley dhar</a>
     <ul>
       <li><a href="#about">about</a></li>
       <li><a href="#school">work</a></li>
       <li><a href="#personal">personal</a></li>
-      <li><a href="#contact">contact</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><a href="resume.html">resume</a></li>
     </ul>
   </nav>
 
@@ -470,7 +487,7 @@
     </div>
   </div>
 
-  <div class="section-wrap" id="school">
+  <div class="section-wrap" id="school" style="border-top: 1px solid var(--border);">
     <div class="section-header">
       <h2>School projects</h2><hr />
     </div>
@@ -481,28 +498,34 @@
         <span class="year-label">UConn<br />2023–24</span>
       </div>
       <div class="projects-list">
-        <div class="project-row">
+        <a href="catapult.html" class="project-row">
           <div>
             <div class="project-course">ENG 1000</div>
             <div class="project-title">Engineering Catapult</div>
             <div class="project-desc">[What did you build, what were the constraints, what did it launch and how far?]</div>
           </div>
-          <div class="project-tags">
-            <span class="tag">mechanical</span>
-            <span class="tag">prototyping</span>
+          <div class="project-right">
+            <div class="project-tags">
+              <span class="tag">mechanical</span>
+              <span class="tag">prototyping</span>
+            </div>
+            <span class="project-arrow">view →</span>
           </div>
-        </div>
-        <div class="project-row">
+        </a>
+        <a href="mars-rover.html" class="project-row">
           <div>
             <div class="project-course">ENG 1166</div>
             <div class="project-title">Mars Rover — Housing & Circuit Design</div>
             <div class="project-desc">[Describe the housing design and circuit work. What was the design challenge? What did the circuit control or sense?]</div>
           </div>
-          <div class="project-tags">
-            <span class="tag">circuits</span>
-            <span class="tag">CAD</span>
+          <div class="project-right">
+            <div class="project-tags">
+              <span class="tag">circuits</span>
+              <span class="tag">CAD</span>
+            </div>
+            <span class="project-arrow">view →</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
 
@@ -512,40 +535,49 @@
         <span class="year-label">BU<br />2024–26</span>
       </div>
       <div class="projects-list">
-        <div class="project-row">
+        <a href="ir-communication.html" class="project-row">
           <div>
             <div class="project-course">EK 210</div>
             <div class="project-title">Point-to-Point IR Communication System</div>
             <div class="project-desc">Designed and built an infrared optical communication system for transmitting signals between two endpoints. [Add specifics — what modulation, what range, any interesting circuit choices.]</div>
           </div>
-          <div class="project-tags">
-            <span class="tag">optical comms</span>
-            <span class="tag">circuits</span>
+          <div class="project-right">
+            <div class="project-tags">
+              <span class="tag">optical comms</span>
+              <span class="tag">circuits</span>
+            </div>
+            <span class="project-arrow">view →</span>
           </div>
-        </div>
-        <div class="project-row">
+        </a>
+        <a href="truss-analysis.html" class="project-row">
           <div>
             <div class="project-course">EK 301</div>
             <div class="project-title">Truss Structural Analysis</div>
             <div class="project-desc">[Loading conditions, method of joints/sections, predicted vs. actual results — whatever was interesting about it.]</div>
           </div>
-          <div class="project-tags">
-            <span class="tag">statics</span>
-            <span class="tag">structural</span>
+          <div class="project-right">
+            <div class="project-tags">
+              <span class="tag">statics</span>
+              <span class="tag">structural</span>
+            </div>
+            <span class="project-arrow">view →</span>
           </div>
-        </div>
-        <div class="project-row">
+        </a>
+        <a href="dls-experiment.html" class="project-row">
           <div>
             <div class="project-course">BE 493</div>
             <div class="project-title">Dynamic Light Scattering Experiment</div>
             <div class="project-desc">Used a Litesizer instrument to characterize [particle/sample type] via DLS. [What did you measure, what were the key findings in your paper?]</div>
           </div>
-          <div class="project-tags">
-            <span class="tag">DLS</span>
-            <span class="tag">lab</span>
-            <span class="tag">writing</span>
+          <div class="project-right">
+            <div class="project-tags">
+              <span class="tag">DLS</span>
+              <span class="tag">lab</span>
+              <span class="tag">writing</span>
+            </div>
+            <span class="project-arrow">view →</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -555,10 +587,10 @@
       <h2>Personal projects</h2><hr />
     </div>
     <div class="personal-grid">
-      <div class="personal-card">
+      <a href="personal-project.html" class="personal-card">
         <h3>Project name</h3>
         <p>[What it is and why you built it.]</p>
-      </div>
+      </a>
       <div class="personal-card placeholder-card">
         <p>more soon</p>
       </div>
@@ -578,8 +610,8 @@
         <a href="https://linkedin.com/in/yourprofile" target="_blank">
           <span class="link-label">linkedin</span>/in/yourprofile
         </a>
-        <a href="https://github.com/yourusername" target="_blank">
-          <span class="link-label">github</span>/yourusername
+        <a href="https://github.com/ashleydhar" target="_blank">
+          <span class="link-label">github</span>/ashleydhar
         </a>
       </div>
     </div>

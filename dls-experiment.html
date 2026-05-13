@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Light Scattering — Ashley</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28; --wine-mid: #8c2637; --wine-pale: #e8d4d8; --text: #1c120e; --muted: #7a6254; --border: #d9cbb8; --rule: #c4b09a; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; border-bottom: 1.5px solid var(--border); }
+    .nav-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; color: var(--wine); text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a { text-decoration: none; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    nav a:hover { color: var(--wine); }
+    .project-hero { max-width: 980px; margin: 0 auto; padding: 5rem 3rem 3rem; border-bottom: 1px solid var(--border); }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; margin-bottom: 2rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--wine); }
+    .project-meta { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 1rem; }
+    .project-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
+    .project-hero h1 em { font-style: italic; color: var(--wine); }
+    .project-summary { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.8; max-width: 600px; border-left: 2px solid var(--wine-pale); padding-left: 1.25rem; }
+    .tags-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 2rem; }
+    .tag { font-family: 'Cutive Mono', monospace; font-size: 0.62rem; background: var(--wine-pale); color: var(--wine); padding: 0.2rem 0.5rem; border-radius: 2px; white-space: nowrap; }
+    .project-body { max-width: 980px; margin: 0 auto; padding: 4rem 3rem; }
+    .project-body section { margin-bottom: 4rem; }
+    .section-label { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.25rem; }
+    .project-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; font-style: italic; margin-bottom: 1rem; }
+    .project-body p { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.9; margin-bottom: 1rem; max-width: 660px; }
+    .image-placeholder { background: var(--surface); border: 1px dashed var(--border); border-radius: 4px; height: 280px; display: flex; align-items: center; justify-content: center; margin: 2rem 0; }
+    .image-placeholder span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .findings-box { background: var(--surface); border-left: 3px solid var(--wine); padding: 1.5rem; border-radius: 0 4px 4px 0; max-width: 660px; margin: 1.5rem 0; }
+    .findings-box p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--text); line-height: 1.7; margin: 0; max-width: none; }
+    footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+    footer span { font-family: 'Cutive Mono', monospace; font-size: 0.65rem; color: var(--rule); letter-spacing: 0.05em; }
+    .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
+    @media (max-width: 680px) {
+      nav { padding: 1rem 1.5rem; } nav ul { gap: 1.25rem; }
+      .project-hero, .project-body { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .project-hero { padding-top: 2.5rem; } .two-col { grid-template-columns: 1fr; gap: 2rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-name">ashley [last name]</a>
+    <ul>
+      <li><a href="index.html#school">work</a></li>
+      <li><a href="index.html#personal">personal</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><a href="resume.html">resume</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-hero">
+    <a href="index.html" class="back-link">← back to all work</a>
+    <div class="project-meta">BE 493 · Boston University · 2024–25</div>
+    <h1>Dynamic Light<br /><em>Scattering Experiment</em></h1>
+    <p class="project-summary">
+      Used a Litesizer instrument to characterize [particle/sample type] via DLS. [What were you measuring and what did it tell you about the sample?]
+    </p>
+    <div class="tags-row">
+      <span class="tag">DLS</span>
+      <span class="tag">lab</span>
+      <span class="tag">writing</span>
+    </div>
+  </div>
+
+  <div class="project-body">
+
+    <section>
+      <span class="section-label">01 — Background</span>
+      <h2>What is DLS?</h2>
+      <p>Dynamic light scattering measures the Brownian motion of particles in suspension by analyzing fluctuations in scattered laser light. From this, it determines the hydrodynamic diameter and polydispersity index (PDI) of the sample.</p>
+      <p>[Expand with any specific background relevant to your experiment — why DLS is useful for this type of sample, what properties you expected to find.]</p>
+    </section>
+
+    <section>
+      <span class="section-label">02 — Experiment</span>
+      <h2>Method</h2>
+      <div class="two-col">
+        <div>
+          <p>[Describe your sample preparation. What was the particle or material? What concentration, solvent, temperature?]</p>
+          <p>[Instrument settings — angle, number of runs, any filters used.]</p>
+        </div>
+        <div>
+          <p>[What controls or comparisons did you run? Any challenges with sample preparation or measurement?]</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="image-placeholder">
+      <span>DLS size distribution plot or lab setup photo — add image here</span>
+    </div>
+
+    <section>
+      <span class="section-label">03 — Findings</span>
+      <h2>Key results</h2>
+      <p>[Summarize your quantitative findings — hydrodynamic diameter, PDI, any concentration or temperature dependence.]</p>
+      <div class="findings-box">
+        <p>"[Pull out one key finding or conclusion from your paper as a quote or summary here.]"</p>
+      </div>
+      <p>[Discuss what the data means — did the results match expected values? Were there anomalies?]</p>
+    </section>
+
+    <section>
+      <span class="section-label">04 — Written Work</span>
+      <h2>The paper</h2>
+      <p>[Brief description of the lab report you wrote — what it covered, what your argument or conclusion was, anything you're proud of in the writing.]</p>
+      <p>[If you want to link or share the report, add a link here.]</p>
+    </section>
+
+  </div>
+
+  <footer>
+    <span>ashley [last name] · 2025</span>
+    <span class="footer-mark">made by me</span>
+    <span>boston, ma</span>
+  </footer>
+
+</body>
+</html>
