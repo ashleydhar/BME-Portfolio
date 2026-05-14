@@ -32,6 +32,10 @@
     .project-body p { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.9; margin-bottom: 1rem; max-width: 660px; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .results-table { width: 100%; border-collapse: collapse; max-width: 660px; margin-top: 1rem; }
+    .photo-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin: 2rem 0; }
+    .photo-grid.one-col { grid-template-columns: 1fr; }
+    .photo-grid img { width: 100%; height: auto; object-fit: contain; border-radius: 3px; display: block; background: var(--surface); }
+    .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; margin-top: 0.5rem; }
     .results-table th { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; color: var(--rule); letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid var(--border); }
     .results-table td { font-size: 0.875rem; color: var(--muted); font-weight: 300; padding: 0.6rem 1rem 0.6rem 0; border-bottom: 1px solid var(--border); }
     .report-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; margin-top: 1rem; }
@@ -87,6 +91,13 @@
       </div>
     </section>
 
+    <div class="photo-grid one-col">
+      <div>
+        <img src="images/truss.jpg" alt="Howe-Warren hybrid acrylic truss" />
+        <p class="photo-caption">final truss, Howe-Warren hybrid, 8 joints and 13 members, acrylic bar construction</p>
+      </div>
+    </div>
+
     <section>
       <span class="section-label">02 — Analysis</span>
       <h2>Design and buckling predictions</h2>
@@ -121,7 +132,7 @@
       <span class="section-label">04 — Report</span>
       <h2>Final report</h2>
       <p>The report covers the full design process from preliminary designs to the final Howe-Warren hybrid, the buckling analysis and three-case failure predictions, the member force table, and a discussion on what the Hartford Civic Center collapse taught us about relying on computer analysis without physical cross-checking. Written with group members Jiahui Chen and Bilqees D'Urso.</p>
-      <a href="assets/ek301_final_report.pdf" class="report-link" target="_blank">↓ read the full report</a>
+      <a href="ek301_final_report.pdf" class="report-link" target="_blank">↓ read the full report</a>
     </section>
 
   </div>
