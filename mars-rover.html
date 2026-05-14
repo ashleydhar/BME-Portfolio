@@ -66,7 +66,7 @@
     <div class="project-meta">ENGR 1166 · University of Connecticut · Spring 2024</div>
     <h1>Mars Rover —<br /><em>Housing & Circuit Design</em></h1>
     <p class="project-summary">
-      Designed and built the housing and electronics for an autonomous rover prototype — laser-cut plywood enclosure with a color-coded sensor system, LED matrix display, and Arduino-based control circuit.
+      Designed and built the housing and electronics for an autonomous rover prototype — laser-cut plywood enclosure with a color-coded sensor system, mini solar panel for rover recharging, and Arduino-based control circuit.
     </p>
     <div class="tags-row">
       <span class="tag">circuits</span>
@@ -91,8 +91,8 @@
         <p class="photo-caption">laser-cut plywood housing, empty structure</p>
       </div>
       <div>
-        <img src="images/rover-housing-complete.jpg" alt="Finished rover housing with LED matrix" />
-        <p class="photo-caption">finished housing with LED matrix and color-coded sensor doors</p>
+        <img src="images/rover-housing-complete.jpg" alt="Finished garage housing with mini solar panel on top" />
+        <p class="photo-caption">finished garage housing with mini solar panel and color-coded sensor doors</p>
       </div>
     </div>
 
@@ -106,7 +106,7 @@
         </div>
         <div>
           <p>The solar panel interface was a key constraint. The panels were shared between the garage and the rover, so the garage needed mounting points and wiring that the rover team could connect to. This required several rounds of back-and-forth to get the connector placement right.</p>
-          <p>The LED dot matrix mounted on top served as the primary status display. Cutouts were sized to fit sensors flush with the outer face. The finger joints were glued and clamped during assembly. Routing wiring cleanly inside a tight two-tier box ended up being harder than expected and is the main thing I would plan better next time.</p>
+          <p>The mini solar panel mounted on top of the garage served as the power source for the rover recharging interface. Cutouts were sized to fit sensors flush with the outer face. The finger joints were glued and clamped during assembly. Routing wiring cleanly inside a tight two-tier box ended up being harder than expected and is the main thing I would plan better next time.</p>
         </div>
       </div>
     </section>
@@ -121,7 +121,7 @@
     <section>
       <span class="section-label">03 — Electronics</span>
       <h2>Circuit and wiring</h2>
-      <p>The control circuit was built around an Arduino and wired on a breadboard. The LED matrix on top was driven by the Arduino to display status during operation. Sensors were routed through the side access doors into the electronics compartment. The solar panel wiring ran from the roof of the garage down to a shared connection point that the rover team could tap into for recharging.</p>
+      <p>The control circuit was built around an Arduino and wired on a breadboard. The Solar panel wiring ran from the panel on top down through the enclosure to a shared connection point the rover team could tap into for recharging. Sensors were routed through the side access doors into the electronics compartment.</p>
       <p>The circuit went through a few iterations. Early versions had loose connections that caused intermittent behavior, which we fixed by soldering key junctions and securing the breadboard to the interior wall. Getting the power routing right for the shared solar interface required testing with the rover team to make sure current was actually passing correctly between the two units.</p>
     </section>
 
