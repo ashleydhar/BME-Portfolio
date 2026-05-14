@@ -14,21 +14,21 @@
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; border-bottom: 1.5px solid var(--border); }
     .nav-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; color: var(--wine); text-decoration: none; }
     nav ul { list-style: none; display: flex; gap: 2rem; }
-    nav a { text-decoration: none; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    nav a { text-decoration: none; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
     nav a:hover { color: var(--wine); }
     .project-hero { max-width: 980px; margin: 0 auto; padding: 5rem 3rem 3rem; border-bottom: 1px solid var(--border); }
-    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; margin-bottom: 2rem; transition: color 0.2s; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; margin-bottom: 2rem; transition: color 0.2s; }
     .back-link:hover { color: var(--wine); }
-    .project-meta { font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 1rem; }
+    .project-meta { font-family: 'Cutive Mono', monospace; font-size: 0.85rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 1rem; }
     .project-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
     .project-hero h1 em { font-style: italic; color: var(--wine); }
     .project-summary { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.8; max-width: 600px; border-left: 2px solid var(--wine-pale); padding-left: 1.25rem; }
     .tags-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 2rem; }
-    .tag { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; background: var(--wine-pale); color: var(--wine); padding: 0.2rem 0.5rem; border-radius: 2px; white-space: nowrap; }
+    .tag { font-family: 'Cutive Mono', monospace; font-size: 0.75rem; background: var(--wine-pale); color: var(--wine); padding: 0.2rem 0.5rem; border-radius: 2px; white-space: nowrap; }
     .project-body { max-width: 980px; margin: 0 auto; padding: 4rem 3rem; }
     .project-body section { margin-bottom: 4rem; }
-    .section-label { font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.25rem; }
-    .project-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; font-style: italic; margin-bottom: 1rem; }
+    .section-label { font-family: 'Cutive Mono', monospace; font-size: 0.85rem; color: var(--text); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.25rem; }
+    .project-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; font-style: italic; margin-bottom: 1rem; }
     .project-body p { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.9; margin-bottom: 1rem; max-width: 660px; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 2rem 0; }
@@ -36,7 +36,7 @@
     .photo-grid.one-col { grid-template-columns: 1fr; }
     .photo-grid img { width: 100%; height: auto; object-fit: contain; border-radius: 3px; display: block; background: var(--surface); }
     .photo-grid.one-col img { height: auto; }
-    .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; color: var(--rule); letter-spacing: 0.05em; margin-top: 0.5rem; }
+    .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; margin-top: 0.5rem; }
     .spec-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; }
     .spec-block dt { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; color: var(--rule); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem; margin-top: 1rem; }
     .spec-block dt:first-child { margin-top: 0; }
@@ -44,7 +44,7 @@
     .report-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; margin-top: 1rem; display: inline-flex; }
     .report-link:hover { background: var(--wine); color: var(--bg); }
     footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
-    footer span { font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--rule); letter-spacing: 0.05em; }
+    footer span { font-family: 'Cutive Mono', monospace; font-size: 0.78rem; color: var(--rule); letter-spacing: 0.05em; }
     .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
     @media (max-width: 680px) {
       nav { padding: 1rem 1.5rem; } nav ul { gap: 1.25rem; }
@@ -69,10 +69,10 @@
 
   <div class="project-hero">
     <a href="index.html" class="back-link">← back to all work</a>
-    <div class="project-meta">EK 210 · Boston University · 2024–25</div>
+    <div class="project-meta">EK 210 · Boston University · Spring 2026</div>
     <h1>Point-to-Point<br /><em>IR Communication</em></h1>
     <p class="project-summary">
-      Designed and built a two-unit infrared optical communication system — a transmitter with a rotating LED cylinder and keypad, and a receiver with an LCD display — housed in laser-cut MDF enclosures with Arduino-based electronics.
+      Designed and built a portable laser communication system that encodes a 10-digit message via keypad and transmits it point-to-point using a 650nm laser, with no WiFi or Bluetooth. The receiver decodes the signal and displays it on an LCD. Achieved about 98% decode accuracy in testing.
     </p>
     <div class="tags-row">
       <span class="tag">optical comms</span>
@@ -89,15 +89,17 @@
       <h2>The challenge</h2>
       <div class="two-col">
         <div>
-          <p>The goal was to design and build a point-to-point infrared communication system from scratch — two separate units that could send and receive signals using IR light. The transmitter unit featured a keypad for input and a rotating cylinder housing the IR LED. The receiver decoded the signal and displayed output on an LCD screen.</p>
-          <p>[Add specifics — what signal type, what range you achieved, any modulation scheme.]</p>
+          <p>The project brief was to design a portable optical communication system that could transmit a 10-digit message from one unit to another using a laser, with no wireless protocols involved. The idea was to make the underlying physics of optical communication visible and hands-on. Key requirements included at least 95% decode accuracy, eye-safe laser operation, transmission in under 30 seconds, and a bill of materials under $250.</p>
+          <p>The system had to work autonomously once the message was entered, meaning no human intervention during transmission. Getting reliable alignment between the transmitter and receiver turned out to be one of the harder parts of the project.</p>
         </div>
         <div class="spec-block">
           <dl>
             <dt>Course</dt><dd>EK 210 · BU</dd>
-            <dt>Components</dt><dd>Arduino, IR LED, photodiode, breadboard, LCD display, keypad</dd>
-            <dt>Housing</dt><dd>Laser-cut MDF, dark-stained</dd>
-            <dt>Power</dt><dd>Dual 9V batteries</dd>
+            <dt>Laser</dt><dd>650nm, eye-safe per IEC 60825-1</dd>
+            <dt>Microcontrollers</dt><dd>Arduino UNO (transmitter), Arduino Nano (receiver)</dd>
+            <dt>Components</dt><dd>BPW24R phototransistor, MCP6241 op-amp, LM311P comparator, 28BYJ-48 stepper motor, TC1602A LCD</dd>
+            <dt>Housing</dt><dd>Laser-cut wood with 3D-printed optical mounts</dd>
+            <dt>Power</dt><dd>9V batteries, HW-131 power supply modules</dd>
           </dl>
         </div>
       </div>
@@ -105,31 +107,32 @@
 
     <div class="photo-grid one-col">
       <div>
-        <img src="images/ir-overview.jpg" alt="IR system overview — CAD drawings and finished units" />
-        <p class="photo-caption">design drawings and finished transmitter + receiver units</p>
+        <img src="images/ir-overview.jpg" alt="IR system overview with CAD drawings and finished units" />
+        <p class="photo-caption">design drawings and finished transmitter and receiver units</p>
       </div>
     </div>
 
     <section>
       <span class="section-label">02 — Design</span>
-      <h2>Transmitter & receiver</h2>
+      <h2>Transmitter and receiver</h2>
       <div class="two-col">
         <div>
-          <p>The transmitter housed a keypad for input and a rotating cylinder containing the IR LED — allowing the beam to be aimed. The enclosure was designed in CAD and laser-cut from MDF.</p>
-          <p>[Describe the circuit — how the keypad input was encoded, how the IR signal was modulated and transmitted.]</p>
+          <p>On the transmitter side, the user types a 10-digit message on a keypad. The Arduino UNO encodes it as a binary pulse train and fires the 650nm laser while a stepper motor sweeps the beam to find alignment with the receiver. Two additional 650nm lasers on the receiver side, paired with a 650nm bandpass filter, provide visible alignment confirmation and help reject ambient light interference.</p>
+          <p>A key design iteration was increasing the bit-encoding time and laser drive current. Early testing showed the error rate was too high at shorter bit times. Extending the timing and increasing current brought the decode accuracy up to about 98% under stable alignment conditions.</p>
         </div>
         <div>
-          <p>The receiver used a photodiode to detect the incoming IR signal, with the decoded output shown on an LCD display mounted in the front face of the enclosure.</p>
-          <p>[Describe the receiving circuit — filtering, amplification, decoding logic.]</p>
+          <p>The receiver uses a BPW24R phototransistor to detect the incoming signal through the bandpass filter. The signal is amplified by an MCP6241 op-amp and digitized by an LM311P comparator before being decoded by the Arduino Nano and displayed on the LCD screen. Both units run off 9V batteries through onboard regulators and power supply modules.</p>
+          <p>The enclosures were designed in CAD and fabricated at EPIC using a laser cutter for the wood panels and a 3D printer for the optical mounts. Battery access was handled by making the top panel of each enclosure removable, though a more integrated solution would be better in a future version.</p>
         </div>
       </div>
     </section>
 
     <section>
-      <span class="section-label">03 — Report</span>
-      <h2>Final report</h2>
-      <p>[Brief summary of what the report covers — system design, results, analysis.]</p>
-      <a href="assets/ek210_final_report.pdf" class="report-link" target="_blank">↓ read the full report</a>
+      <span class="section-label">03 — Results and report</span>
+      <h2>Performance and final report</h2>
+      <p>Over 10 test trials, the system averaged 98% decode accuracy, exceeding the 95% target. Five of the seven design objectives were fully met. Autonomy and long-range reliability were the two areas that still needed work. The system required stable alignment to perform well, and outdoor use introduced too much ambient light interference.</p>
+      <p>The report covers the full design process, component selection rationale, testing results, and lessons learned about system integration. It was written with group members Hawa Alsulaiman, Taha Ben Hadj Miled, and Austin Li.</p>
+      <a href="ek210_final_report.pdf" class="report-link" target="_blank">↓ read the full report</a>
     </section>
 
   </div>
