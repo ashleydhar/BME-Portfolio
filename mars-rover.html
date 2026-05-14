@@ -81,8 +81,8 @@
     <section>
       <span class="section-label">01 — Overview</span>
       <h2>The challenge</h2>
-      <p>ENGR 1166 Foundations of Engineering was a first-year design course at UConn taken spring 2024. The course was structured around two multi-week design projects completed in small teams, with weekly engineering design logs and a final poster presentation. The BME track emphasized iterative design, building, and improving a device to meet a specified need within constraints.</p>
-      <p>The rover project was the major semester deliverable. Working in a team, the task was to design and build an autonomous rover prototype. My responsibilities were the enclosure design and the Arduino-based control circuit. The rover needed to house its sensors, display output on an LED matrix, move autonomously, and hold together through testing and the final poster demonstration.</p>
+      <p>ENGR 1166 Foundations of Engineering was a first-year design course at UConn taken spring 2024. The semester-long project simulated a Mars habitat scenario where different teams built different components of a larger system. A rover built by one team needed to recharge using solar panels shared with a separate structure, the garage, which is what my team was responsible for. A third group built the house that the garage connected to.</p>
+      <p>This meant the project had two layers of coordination: working within your own team to build your component, and working across teams to make sure the interfaces actually fit together. The garage had to physically connect to the house and electrically interface with the rover, so design decisions couldn't be made in isolation. Dimensions, power connections, and mounting points all had to be negotiated between groups throughout the semester.</p>
     </section>
 
     <div class="photo-grid two-col-photo">
@@ -98,15 +98,15 @@
 
     <section>
       <span class="section-label">02 — Housing Design</span>
-      <h2>Structure</h2>
+      <h2>The garage structure</h2>
       <div class="two-col">
         <div>
-          <p>The enclosure was designed using CAD and laser-cut from plywood using finger-joint construction, which kept the box rigid without requiring additional fasteners at the corners. The two-tier structure separated the main electronics compartment on top from the sensor bay below.</p>
-          <p>Access doors on two sides were included so components could be reached after assembly. The doors were color-coded with yarn stitching in blue, pink, and red to mark sensor orientation and team member assignments.</p>
+          <p>The garage enclosure was designed using CAD and laser-cut from plywood using finger-joint construction, which kept the structure rigid without needing additional fasteners at the corners. The two-tier build separated the main electronics compartment on top from the lower bay. Exterior dimensions had to be coordinated with the house team so the two units could physically connect at a shared wall.</p>
+          <p>Access doors on two sides let components be reached after assembly. The doors were color-coded with yarn stitching in blue, pink, and red to indicate sensor orientation and make assembly less error-prone without having to refer back to documentation every time.</p>
         </div>
         <div>
-          <p>The LED dot matrix was mounted on top of the enclosure and served as the primary visual output. Cutouts were sized to fit the sensors flush with the outer face of the housing. The finger joints were glued and clamped during assembly to keep tolerances tight.</p>
-          <p>One thing I would change is building in more slack around the wiring paths. Getting everything routed cleanly inside a tight two-tier box was harder than expected.</p>
+          <p>The solar panel interface was a key constraint. The panels were shared between the garage and the rover, so the garage needed mounting points and wiring that the rover team could connect to. This required several rounds of back-and-forth to get the connector placement right.</p>
+          <p>The LED dot matrix mounted on top served as the primary status display. Cutouts were sized to fit sensors flush with the outer face. The finger joints were glued and clamped during assembly. Routing wiring cleanly inside a tight two-tier box ended up being harder than expected and is the main thing I would plan better next time.</p>
         </div>
       </div>
     </section>
@@ -121,14 +121,15 @@
     <section>
       <span class="section-label">03 — Electronics</span>
       <h2>Circuit and wiring</h2>
-      <p>The control circuit was built around an Arduino and wired on a breadboard. The LED matrix on top of the housing was driven by the Arduino and used to display status or output during operation. Sensors were wired through the side access points and routed to the electronics compartment. Power came from a battery pack housed inside the lower tier.</p>
-      <p>The circuit went through a few iterations during the build. Early versions had loose connections that caused intermittent behavior, which we fixed by soldering key junctions and securing the breadboard to the interior wall of the housing.</p>
+      <p>The control circuit was built around an Arduino and wired on a breadboard. The LED matrix on top was driven by the Arduino to display status during operation. Sensors were routed through the side access doors into the electronics compartment. The solar panel wiring ran from the roof of the garage down to a shared connection point that the rover team could tap into for recharging.</p>
+      <p>The circuit went through a few iterations. Early versions had loose connections that caused intermittent behavior, which we fixed by soldering key junctions and securing the breadboard to the interior wall. Getting the power routing right for the shared solar interface required testing with the rover team to make sure current was actually passing correctly between the two units.</p>
     </section>
 
     <section>
       <span class="section-label">04 — Results</span>
       <h2>Outcome</h2>
-      <p>The rover completed the course requirements and the housing held up through testing. The finger-joint construction was sturdier than I expected for a first attempt at laser-cut enclosures. The color-coded doors were a small detail that ended up being genuinely useful during assembly since it made sensor orientation immediately obvious without having to check documentation.</p>
+      <p>The garage connected to the house as planned and the solar interface with the rover team worked. The finger-joint construction held up better than I expected for a first attempt at laser-cut enclosures. The color-coded doors turned out to be genuinely useful during both assembly and the final demo since they made sensor orientation immediately clear without having to check documentation.</p>
+      <p>The hardest part of the project was not the building itself but the coordination. Any change to the garage dimensions or connection points had downstream effects on both the house and the rover, which meant communication between teams had to stay constant throughout. It was a good lesson in how design constraints in one component can ripple through a larger system.</p>
     </section>
 
   </div>
