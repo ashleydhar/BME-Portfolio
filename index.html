@@ -16,9 +16,9 @@
       --wine-mid:  #8c2637;
       --wine-pale: #e8d4d8;
       --text:      #1c120e;
-      --muted: #4a3728;
+      --muted:     #4a3728;
       --border:    #d9cbb8;
-      --rule: #7a5c48;
+      --rule:      #7a5c48;
     }
 
     html { scroll-behavior: smooth; }
@@ -92,6 +92,18 @@
       color: var(--wine);
     }
 
+    .hero-photo {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 3px;
+      display: block;
+      margin-bottom: 1.5rem;
+      filter: sepia(8%);
+    }
+
     .hero-right p {
       font-size: 1rem;
       color: var(--muted);
@@ -119,7 +131,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* About section */
     .about-wrap {
       max-width: 980px;
       margin: 0 auto;
@@ -408,6 +419,7 @@
       nav { padding: 1rem 1.5rem; }
       nav ul { gap: 1.25rem; }
       .hero { padding: 2.5rem 1.5rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
+      .hero-photo { aspect-ratio: 4 / 3; max-width: 100%; }
       .hero-divider { padding: 0 1.5rem; }
       .about-wrap { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
       .section-wrap { padding: 3rem 1.5rem; }
@@ -439,6 +451,7 @@
       <h1>Engineering<br /><em>things I</em><br />care about.</h1>
     </div>
     <div class="hero-right">
+      <img src="ashley.jpg" alt="Ashley Dhar" class="hero-photo" />
       <p>
         I'm a biomedical engineering student at Boston University.
         This site collects the work I'm most proud of, both from my time at school and from my time outside of it.
@@ -542,7 +555,6 @@
         </a>
       </div>
     </div>
-
 
     <div class="year-group">
       <div class="year-aside">
