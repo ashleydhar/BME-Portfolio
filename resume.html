@@ -8,48 +8,274 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Cutive+Mono&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #f0e6d0; --surface: #f7f0e4; --wine: #6b1a28; --wine-mid: #8c2637; --wine-pale: #e8d4d8; --text: #1c120e; --muted: #4a3728; --border: #d9cbb8; --rule: #7a5c48; }
+
+    :root {
+      --bg:        #f0e6d0;
+      --surface:   #f7f0e4;
+      --wine:      #6b1a28;
+      --wine-mid:  #8c2637;
+      --wine-pale: #e8d4d8;
+      --text:      #1c120e;
+      --muted:     #4a3728;
+      --border:    #d9cbb8;
+      --rule:      #7a5c48;
+    }
+
     html { scroll-behavior: smooth; }
-    body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; border-bottom: 1.5px solid var(--border); }
-    .nav-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; color: var(--wine); text-decoration: none; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--wine);
+      text-decoration: none;
+    }
+
     nav ul { list-style: none; display: flex; gap: 2rem; }
-    nav a { text-decoration: none; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
     nav a:hover { color: var(--wine); }
-    .page-wrap { max-width: 980px; margin: 0 auto; padding: 5rem 3rem 6rem; }
-    .page-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2.5rem; }
-    .page-vol { font-family: 'Cutive Mono', monospace; font-size: 0.85rem; color: var(--muted); letter-spacing: 0.08em; display: block; margin-bottom: 1rem; }
-    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1.1; }
-    .page-header h1 em { font-style: italic; color: var(--wine); }
-    .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+
+    .page-header {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 3rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .page-header h1 em {
+      font-style: italic;
+      color: var(--wine);
+    }
+
+    .header-meta { text-align: right; }
+
+    .header-meta p {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+    }
+
+    .header-meta a { color: var(--wine); text-decoration: none; }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--wine);
+      border: 1px solid var(--wine);
+      padding: 0.4rem 0.85rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
     .download-btn:hover { background: var(--wine); color: var(--bg); }
-    .resume-body { display: grid; grid-template-columns: 200px 1fr; gap: 0 4rem; }
-    .resume-section-label { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; color: var(--rule); letter-spacing: 0.1em; text-transform: uppercase; padding-top: 0.3rem; padding-bottom: 3rem; }
-    .resume-section-content { padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
-    .resume-entry { margin-bottom: 2rem; }
-    .resume-entry:last-child { margin-bottom: 0; }
-    .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem; }
-    .entry-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; }
-    .entry-date { font-family: 'Cutive Mono', monospace; font-size: 0.72rem; color: var(--rule); white-space: nowrap; }
-    .entry-org { font-size: 0.8rem; color: var(--wine); font-weight: 400; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-    .entry-desc { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.8; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; }
-    .skill-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 0.4rem 0.75rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
-    footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
-    footer span { font-family: 'Cutive Mono', monospace; font-size: 0.78rem; color: var(--rule); letter-spacing: 0.05em; }
-    .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
+
+    .resume-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 3rem 5rem;
+    }
+
+    .resume-section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 3rem;
+    }
+
+    .resume-section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--rule);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding-top: 0.2rem;
+      line-height: 1.5;
+    }
+
+    .section-content { display: flex; flex-direction: column; gap: 1.75rem; }
+
+    .entry-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.2rem;
+      gap: 1rem;
+    }
+
+    .entry-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .entry-date {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--rule);
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+    }
+
+    .entry-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 0.65rem;
+      font-style: italic;
+    }
+
+    .entry ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .entry ul li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.65;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .entry ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--wine-pale);
+      font-size: 0.75rem;
+    }
+
+    .skills-group { margin-bottom: 1rem; }
+    .skills-group:last-child { margin-bottom: 0; }
+
+    .skills-group-label {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--rule);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .skills-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .skill-tag {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      background: var(--wine-pale);
+      color: var(--wine);
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+    }
+
+    .awards-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .award-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .award-item span {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .award-item .award-year {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--rule);
+      white-space: nowrap;
+    }
+
+    footer {
+      border-top: 1.5px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer span {
+      font-family: 'Cutive Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--rule);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--wine);
+    }
+
     @media (max-width: 680px) {
-      nav { padding: 1rem 1.5rem; } nav ul { gap: 1.25rem; }
-      .page-wrap { padding: 3rem 1.5rem; }
-      .page-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-      .resume-body { grid-template-columns: 1fr; }
-      .resume-section-label { padding-bottom: 0.5rem; }
-      .resume-section-content { border-bottom: none; padding-bottom: 2rem; }
+      nav { padding: 1rem 1.5rem; }
+      nav ul { gap: 1.25rem; }
+      .page-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 3rem 1.5rem 2rem; }
+      .header-meta { text-align: left; }
+      .resume-wrap { padding: 0 1.5rem 4rem; }
+      .resume-section { grid-template-columns: 1fr; gap: 1rem; }
+      .entry-top { flex-direction: column; gap: 0.1rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
+
   <nav>
     <a href="index.html" class="nav-name">ashley dhar</a>
     <ul>
@@ -61,130 +287,229 @@
     </ul>
   </nav>
 
-  <div class="page-wrap">
-    <div class="page-header">
-      <div>
-        <span class="page-vol">curriculum vitae</span>
-        <h1>Ashley<br /><em>Dhar</em></h1>
+  <div class="page-header">
+    <h1>Ashley<br /><em>Dhar</em></h1>
+    <div class="header-meta">
+      <p>
+        Boston, MA<br />
+        <a href="mailto:ashdhar@bu.edu">ashdhar@bu.edu</a><br />
+        (475) 419-4665<br />
+        <a href="https://www.linkedin.com/in/ashley-dhar-574987292/" target="_blank">LinkedIn</a>
+      </p>
+      <a href="MS resume.pdf" download class="download-btn">↓ download pdf</a>
+    </div>
+  </div>
+
+  <div class="resume-wrap">
+
+    <div class="resume-section">
+      <span class="section-label">Research interests</span>
+      <div class="section-content">
+        <div class="skills-tags" style="margin-top: 0.2rem;">
+          <span class="skill-tag">biomaterials design</span>
+          <span class="skill-tag">scaffold fabrication</span>
+          <span class="skill-tag">therapeutic delivery</span>
+          <span class="skill-tag">tissue engineering</span>
+          <span class="skill-tag">biocompatibility</span>
+          <span class="skill-tag">cell–material interactions</span>
+          <span class="skill-tag">bioinstrumentation</span>
+        </div>
       </div>
-      <a href="/assets/Dhar Ashley Resume.pdf" class="download-btn">↓ download pdf</a>
     </div>
 
-    <div class="resume-body">
+    <div class="resume-section">
+      <span class="section-label">Education</span>
+      <div class="section-content">
 
-      <div class="resume-section-label">Education</div>
-      <div class="resume-section-content">
-        <div class="resume-entry">
-          <div class="entry-header">
+        <div class="entry">
+          <div class="entry-top">
             <span class="entry-title">Boston University</span>
-            <span class="entry-date">2023 — present</span>
+            <span class="entry-date">exp. May 2027</span>
           </div>
-          <div class="entry-org">B.S. Biomedical Engineering · Class of 2027 · GPA 3.5 · Dean's List</div>
-          <div class="entry-desc">Coursework: Organic Chemistry, Molecular and Cell Biology, Circuits, Biomedical Measurements, Signals and Controls, Engineering Mechanics.</div>
+          <div class="entry-sub">B.S. Biomedical Engineering · GPA 3.5 · Dean's List 2024–2025</div>
+          <ul>
+            <li>Biomedical Measurements, Signals & Controls, Organic Chemistry, Molecular & Cell Biology, Engineering Mechanics, Circuits</li>
+          </ul>
         </div>
-        <div class="resume-entry">
-          <div class="entry-header">
+
+        <div class="entry">
+          <div class="entry-top">
             <span class="entry-title">University of Connecticut</span>
-            <span class="entry-date">Aug 2023 — May 2024</span>
+            <span class="entry-date">Aug 2023 – May 2024</span>
           </div>
-          <div class="entry-org">Biomedical Engineering Coursework</div>
-          <div class="entry-desc">Started as BME at UConn, transferred to BU after freshman year.</div>
+          <div class="entry-sub">Biomedical Engineering Coursework</div>
         </div>
-      </div>
 
-      <div class="resume-section-label">Research</div>
-      <div class="resume-section-content">
-        <div class="resume-entry">
-          <div class="entry-header">
-            <span class="entry-title">Undergraduate Research Assistant</span>
-            <span class="entry-date">Apr 2025 — present</span>
-          </div>
-          <div class="entry-org">Dental Biomaterials Laboratory · Housman Medical Research Center · Boston University</div>
-          <div class="entry-desc">Characterized chemical composition of biomaterial scaffolds via FTIR spectroscopy. Performed SEM imaging to analyze nanostructure morphology and surface topography. Conducted mammalian cell culture including MTT viability assays and cytotoxicity screening. Investigated bacterial adhesion on dental surfaces by culturing E. coli and assessing how surface hardness and corrosion relate to microbial colonization.</div>
-        </div>
-        <div class="resume-entry">
-          <div class="entry-header">
-            <span class="entry-title">Student Researcher</span>
-            <span class="entry-date">Sept 2022 — May 2023</span>
-          </div>
-          <div class="entry-org">Danbury Hospital · Nuvance Health</div>
-          <div class="entry-desc">Rotated across microbiology, hematology, clinical chemistry, blood bank, diagnostics, and histology. Assisted in processing histopathology specimens using tissue fixation, microtome sectioning, and H&E staining.</div>
-        </div>
       </div>
-
-      <div class="resume-section-label">Experience</div>
-      <div class="resume-section-content">
-        <div class="resume-entry">
-          <div class="entry-header">
-            <span class="entry-title">AI Data Annotator</span>
-            <span class="entry-date">Jan 2025 — present</span>
-          </div>
-          <div class="entry-org">RWS Group and Mercor · Remote</div>
-          <div class="entry-desc">Annotate large datasets for AI/ML model training with focus on data quality assurance and structured labeling.</div>
-        </div>
-        <div class="resume-entry">
-          <div class="entry-header">
-            <span class="entry-title">Pharmacy Associate</span>
-            <span class="entry-date">Dec 2023 — Sept 2024</span>
-          </div>
-          <div class="entry-org">CVS Pharmacy · Fairfield, CT</div>
-          <div class="entry-desc">Assisted with prescription processing and inventory management under DEA compliance and QA protocols. Supported patient-facing interactions including medication pickup and usage questions.</div>
-        </div>
-      </div>
-
-      <div class="resume-section-label">Selected Projects</div>
-      <div class="resume-section-content">
-        <div class="resume-entry">
-          <div class="entry-header">
-            <span class="entry-title">DLS Analysis of Yogurt Nanoparticles</span>
-            <span class="entry-date">Spring 2026</span>
-          </div>
-          <div class="entry-org">BE 493 · Boston University</div>
-          <div class="entry-desc">Characterized nanoparticle size and polydispersity in Greek and regular yogurt using a Litesizer 500. Designed dilution protocol and evaluated statistical differences using one-way ANOVA.</div>
-        </div>
-        <div class="resume-entry">
-          <div class="entry-header">
-            <span class="entry-title">Point-to-Point IR Communication System</span>
-            <span class="entry-date">Spring 2026</span>
-          </div>
-          <div class="entry-org">EK 210 · Boston University</div>
-          <div class="entry-desc">Built a wireless IR communication system using Arduino microcontrollers, a 950nm IR LED, and a phototransistor receiver with op-amp signal amplification. Improved decoding accuracy from about 30% to about 100% by increasing LED drive current and encoding time.</div>
-        </div>
-        <div class="resume-entry">
-          <div class="entry-header">
-            <span class="entry-title">Howe-Warren Truss Design</span>
-            <span class="entry-date">Spring 2026</span>
-          </div>
-          <div class="entry-org">EK 301 · Boston University</div>
-          <div class="entry-desc">Designed an acrylic truss to maximize load-to-cost ratio. Ran buckling analysis across three failure cases. Predicted failure load of 61.51 oz exceeded the 32 oz requirement.</div>
-        </div>
-      </div>
-
-      <div class="resume-section-label">Skills</div>
-      <div class="resume-section-content">
-        <div class="skills-grid">
-          <span class="skill-chip">FTIR Spectroscopy</span>
-          <span class="skill-chip">SEM</span>
-          <span class="skill-chip">DLS</span>
-          <span class="skill-chip">Cell culture</span>
-          <span class="skill-chip">MTT assays</span>
-          <span class="skill-chip">Aseptic technique</span>
-          <span class="skill-chip">Microtomy</span>
-          <span class="skill-chip">PCR</span>
-          <span class="skill-chip">MATLAB</span>
-          <span class="skill-chip">Python</span>
-          <span class="skill-chip">Arduino (C)</span>
-          <span class="skill-chip">SolidWorks</span>
-          <span class="skill-chip">LaTeX</span>
-          <span class="skill-chip">Circuit design</span>
-          <span class="skill-chip">Laser cutting</span>
-          <span class="skill-chip">3D printing</span>
-          <span class="skill-chip">Statistical analysis</span>
-          <span class="skill-chip">Technical writing</span>
-        </div>
-      </div>
-
     </div>
+
+    <div class="resume-section">
+      <span class="section-label">Research</span>
+      <div class="section-content">
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title">Undergraduate Research Assistant</span>
+            <span class="entry-date">Apr 2025 – Apr 2026</span>
+          </div>
+          <div class="entry-sub">Dental Biomaterials Laboratory, Housman Medical Research Center · Boston University</div>
+          <ul>
+            <li>Characterized biomaterial scaffolds using FTIR spectroscopy to identify functional groups and support structure-property analysis for therapeutic delivery research</li>
+            <li>Supported SEM imaging workflows to examine nanostructure morphology, porosity, and surface topography</li>
+            <li>Ran mammalian cell culture experiments including MTT viability assays and cytotoxicity screening to assess biocompatibility under aseptic conditions</li>
+            <li>Contributed to a bacterial adhesion study culturing E. coli on dental material surfaces; helped collect and interpret data on how surface hardness and corrosion affect microbial colonization</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title">Student Researcher</span>
+            <span class="entry-date">Sept 2022 – May 2023</span>
+          </div>
+          <div class="entry-sub">Danbury Hospital, Nuvance Health · Danbury, CT</div>
+          <ul>
+            <li>Rotated across microbiology, hematology, clinical chemistry, blood bank, diagnostics, and histology; observed workflows and instrumentation in a clinical laboratory setting</li>
+            <li>Assisted in processing histopathology specimens using tissue fixation, microtome sectioning, and H&E staining; observed diagnostic workflows alongside pathologists</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <span class="section-label">Projects</span>
+      <div class="section-content">
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title">Dynamic Light Scattering Analysis of Yogurt Nanoparticles</span>
+            <span class="entry-date">Spring 2026</span>
+          </div>
+          <div class="entry-sub">BE 493: Biomedical Measurements · Boston University</div>
+          <ul>
+            <li>Characterized nanoparticle size distributions and polydispersity index across regular, Greek, and drinkable yogurt using a Litesizer 500; designed sample preparation protocol and dilution series</li>
+            <li>Evaluated statistical differences using one-way ANOVA with Tukey HSD post-hoc testing; authored full technical lab report</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title">Point-to-Point IR Optical Communication System</span>
+            <span class="entry-date">Spring 2026</span>
+          </div>
+          <div class="entry-sub">EK 210: Introduction to Engineering Design · BU Photonics Center</div>
+          <ul>
+            <li>Built a wireless IR communication system using Arduino microcontrollers, a 950nm IR LED, and a phototransistor receiver with op-amp signal amplification; implemented pulse-width bit encoding and decoding</li>
+            <li>Improved decoding accuracy from ~30% to ~100% by optimizing LED drive current and encoding timing</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title">Howe-Warren Hybrid Truss Structural Analysis</span>
+            <span class="entry-date">Spring 2025</span>
+          </div>
+          <div class="entry-sub">EK 301: Engineering Mechanics · Boston University</div>
+          <ul>
+            <li>Designed acrylic truss to maximize load-to-cost ratio; performed buckling analysis across three failure cases; predicted failure load of 61.51 oz with member m4 as the critical compression member</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <span class="section-label">Other experience</span>
+      <div class="section-content">
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title">AI Data Annotator</span>
+            <span class="entry-date">Jan 2025 – Present</span>
+          </div>
+          <div class="entry-sub">RWS Group & Mercor · Remote</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title">Pharmacy Associate</span>
+            <span class="entry-date">Dec 2023 – Sept 2024</span>
+          </div>
+          <div class="entry-sub">CVS Pharmacy · Fairfield, CT</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <span class="section-label">Skills</span>
+      <div class="section-content">
+
+        <div class="skills-group">
+          <span class="skills-group-label">laboratory</span>
+          <div class="skills-tags">
+            <span class="skill-tag">FTIR spectroscopy</span>
+            <span class="skill-tag">SEM</span>
+            <span class="skill-tag">DLS</span>
+            <span class="skill-tag">mammalian cell culture</span>
+            <span class="skill-tag">MTT assays</span>
+            <span class="skill-tag">cytotoxicity testing</span>
+            <span class="skill-tag">biomaterials characterization</span>
+            <span class="skill-tag">PCR</span>
+            <span class="skill-tag">microtomy</span>
+            <span class="skill-tag">aseptic technique</span>
+            <span class="skill-tag">histological preparation</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <span class="skills-group-label">computational</span>
+          <div class="skills-tags">
+            <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Arduino (C)</span>
+            <span class="skill-tag">SolidWorks</span>
+            <span class="skill-tag">LaTeX</span>
+            <span class="skill-tag">Microsoft Office</span>
+            <span class="skill-tag">Google Workspace</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <span class="skills-group-label">languages</span>
+          <div class="skills-tags">
+            <span class="skill-tag">English (native)</span>
+            <span class="skill-tag">French (conversational)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <span class="section-label">Awards & activities</span>
+      <div class="section-content">
+        <div class="awards-list">
+          <div class="award-item">
+            <span>Member, Biomedical Engineering Society (BMES), Boston University</span>
+            <span class="award-year">Sept 2024 – present</span>
+          </div>
+          <div class="award-item">
+            <span>Dean's List, Boston University</span>
+            <span class="award-year">2024–2025</span>
+          </div>
+          <div class="award-item">
+            <span>Exemplary Work in Science/Engineering, CT STEM Foundation</span>
+            <span class="award-year">2023</span>
+          </div>
+          <div class="award-item">
+            <span>Bausch & Lomb Honorary Science Award</span>
+            <span class="award-year">2022</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <footer>
@@ -192,5 +517,6 @@
     <span class="footer-mark">made by me</span>
     <span>boston, ma</span>
   </footer>
+
 </body>
 </html>
