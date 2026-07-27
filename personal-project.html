@@ -92,8 +92,8 @@
     <section>
       <span class="section-label">01 — Background</span>
       <h2>Why I made this</h2>
-      <p>My coursework usually hands me one layer of a problem: a materials lab that ends once the sample is characterized, or a measurements lab where the instrument already works. I wanted to make the material, build the circuit that reads it, and write the code that turns those readings into a graph.</p>
-      <p>The idea behind the sensor is simple. Mix conductive graphite into a soft gel and the particles form a loose network that electricity can travel through. Squeeze the gel, the particles get pushed closer together, and electricity flows more easily. Measure that change and you know how hard you pressed. Add too little graphite and the particles never touch, so nothing works at all. I wanted to find where that cutoff sits, in the pressure range that matters for a sensor worn on skin.</p>
+      <p>My coursework usually hands me one layer of a problem: a lab that ends once the sample is characterized, or one where the instrument already works. I wanted to make the material, build the circuit that reads it, and write the code that plots the result.</p>
+      <p>The idea is simple. Mix conductive graphite into a soft gel and the particles form a loose network electricity can travel through. Squeeze it and they pack closer together, so current flows more easily. Measure that change and you know how hard you pressed. Too little graphite and the particles never touch, so nothing works. I wanted to find where that cutoff sits, in the pressure range that matters for a sensor worn on skin.</p>
     </section>
 
     <section>
@@ -101,13 +101,12 @@
       <h2>How it came together</h2>
       <div class="two-col">
         <div>
-          <p>Sodium alginate is the seaweed extract used to thicken ice cream. It dissolves in warm water and firms up in a calcium bath at room temperature, so no oven and nothing toxic. I held the mixture at 60 °C over a double boiler since I do not own a hotplate, stirred in graphite at three different amounts, poured it into an ice cube tray, and pressed copper tape into each sample for the electrical contacts.</p>
-          <p>Each gel got wired into a circuit that turns resistance into a voltage the Arduino can read, ten times a second. Python did the rest: smoothing the noise, fitting the calibration curves, and confirming the sensor could track a finger tapping at a steady rate.</p>
+          <p>Sodium alginate is the seaweed extract used to thicken ice cream. It dissolves in warm water and firms up in a calcium bath at room temperature, so no oven and nothing toxic. I held it at 60 °C over a double boiler since I do not own a hotplate, stirred in graphite at three amounts, cast it into 20 by 20 by 5 mm molds, and pressed copper tape into each sample for the contacts.</p>
+          <p>Each gel went into a circuit that turns resistance into a voltage the Arduino reads ten times a second. Python smoothed the noise, fit the calibration curves, and confirmed the sensor could track a finger tapping at a steady rate.</p>
         </div>
         <div>
-          <p>The gels turned out to be the fragile part, not the electronics. This is the fourth batch. One shrank so hard in the calcium bath that the samples pulled away from the mold and lost their shape entirely. One cracked overnight because I left it uncovered and it dried out. One had the graphite sink to the bottom before it set because I did not stir long enough. What finally worked was storing them sealed with a damp paper towel and a splash of the calcium solution.</p>
-          <p>The failed batch below was cast in the wrong tray, which is part of why it came out the way it did. The cavities were oversized and too deep for what I needed, so the gels shrank into shapeless lumps instead of holding a usable shape. The samples I actually tested were cast in a properly sized mold at 20 by 20 by 5 mm, which gives a 4 cm² face and keeps the pressure math clean.</p>
-          <p>I also learned that this kind of circuit only works when its fixed resistor is close to what you are measuring. My lowest-graphite gel came in about twenty times higher than the biggest resistor I owned, so the Arduino read it in coarse jumps roughly as large as the signal itself. That sample's data is junk, and I kept it in the writeup anyway because it shows where the cutoff is.</p>
+          <p>The gels turned out to be the fragile part, not the electronics. This is the fourth batch. One shrank into lumps because I used the wrong tray, one cracked overnight after I left it uncovered, and one had the graphite sink before it set because I under-stirred. Storing them sealed with a damp paper towel and a splash of calcium solution finally worked.</p>
+          <p>I also learned this kind of circuit only works when its fixed resistor is close to what you are measuring. My lowest-graphite gel read about twenty times higher than the biggest resistor I owned, so the Arduino saw it in jumps as coarse as the signal itself. That sample's data is junk. I kept it in because it shows where the cutoff is.</p>
         </div>
       </div>
     </section>
@@ -136,7 +135,7 @@
     <section>
       <span class="section-label">03 — Results</span>
       <h2>What the sensors did</h2>
-      <p>Resistance dropped sharply between the 1 and 3 percent samples, which is the cutoff I was looking for. The 3 and 5 percent gels responded cleanly to pressure. The 1 percent one barely responded at all.</p>
+      <p>Resistance dropped sharply between the 1 and 3 percent samples, which is the cutoff I was after. The 3 and 5 percent gels responded cleanly to pressure. The 1 percent one barely responded.</p>
 
       <table class="data-table">
         <thead>
@@ -155,24 +154,24 @@
       </div>
 
       <div class="findings-box">
-        <p>The 3 percent gel beat the 5 percent one. More graphite means better conductivity, but past a point the particles are already so packed that squeezing them adds nothing. The sweet spot sits just above the cutoff, not as high as you can go.</p>
+        <p>The 3 percent gel beat the 5 percent one. More graphite means better conductivity, but past a point the particles are packed so tightly that squeezing adds nothing. The sweet spot sits just above the cutoff, not as high as you can go.</p>
       </div>
 
-      <p>That 3 percent sample matched published sensitivity values for this kind of sensor, held steady through 100 presses, and correctly picked out a twice-per-second tap when I ran the signal through a frequency analysis. So the whole chain works: gel, circuit, code.</p>
+      <p>That sample matched published sensitivity values for this kind of sensor, held steady through 100 presses, and picked out a twice-per-second tap when I ran the signal through a frequency analysis. Gel, circuit, and code all work.</p>
 
       <div class="figure">
         <img src="images/fig-durability.png" alt="Baseline drift over 100 compression cycles" />
         <p class="photo-caption">Drift over 100 presses. The 3 and 5 percent gels stay under the 10 percent benchmark. The 1 percent one does not.</p>
       </div>
 
-      <p>The surprise was the saltwater test. Soaking the best sensor in saline shifted its resistance by 34 percent, more than pressing on it does. Salt ions interfere with the graphite network, and skin is salty. Fixing that matters more than squeezing out extra sensitivity.</p>
+      <p>The surprise was the saltwater test. Soaking the best sensor in saline shifted its resistance 34 percent, more than pressing on it does. Salt ions interfere with the graphite network, and skin is salty. Fixing that matters more than squeezing out extra sensitivity.</p>
     </section>
 
     <section>
       <span class="section-label">04 — Report</span>
       <h2>Where it goes next</h2>
-      <p>I wrote this up as a short lab report covering the protocol, the data, and what I would change. The honest summary: the process works, and my limits were sample handling, weighing things on a kitchen scale, and my resistor collection, not the chemistry.</p>
-      <p>Next round: three gels per concentration instead of one, added 2 and 4 percent to pin down the cutoff, a real resistor kit, testing in a humid box so I can tell drying out from wearing out, and a first attempt at a coating for the saltwater problem.</p>
+      <p>I wrote this up as a short lab report with the protocol, the data, and what I would change. The process works. My limits were sample handling, a kitchen scale, and my resistor collection, not the chemistry.</p>
+      <p>Next round: more gels per concentration, 2 and 4 percent added to pin down the cutoff, a real resistor kit, testing in a humid box so I can tell drying out from wearing out, and a coating for the saltwater problem.</p>
       <iframe src="assets/hydrogel_sensor_report.pdf" width="100%" height="800px" style="border: 1px solid var(--border); border-radius: 4px; margin-top: 1.5rem; display: block;"></iframe>
       <a href="assets/hydrogel_sensor_report.pdf" class="report-link" target="_blank" style="margin-top: 1rem;">↓ open report in new tab</a>
     </section>
