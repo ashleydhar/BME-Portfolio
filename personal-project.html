@@ -40,8 +40,9 @@
     .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin: 2rem 0 4rem; }
     .photo-frame { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 3px; }
     .photo-frame img { display: block; max-width: 100%; max-height: 100%; }
-    /* sideways photo: change 90deg to -90deg to spin it the other way */
-    .photo-frame.rotate img { transform: rotate(90deg); }
+    /* rotate a sideways photo: swap rotate-cw for rotate-ccw on any frame to spin it the other way */
+    .photo-frame.rotate-cw img { transform: rotate(90deg); }
+    .photo-frame.rotate-ccw img { transform: rotate(-90deg); }
     .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; margin-top: 0.5rem; line-height: 1.5; }
 
     .figure { margin: 2rem 0; max-width: 800px; }
@@ -113,13 +114,13 @@
 
     <div class="photo-grid">
       <div>
-        <div class="photo-frame rotate">
+        <div class="photo-frame rotate-cw">
           <img src="images/double_boiler.jpg" alt="Alginate solution held at temperature over a double boiler on a stovetop" />
         </div>
         <p class="photo-caption">Double boiler standing in for a hotplate. Holds 60 °C without scorching the alginate.</p>
       </div>
       <div>
-        <div class="photo-frame">
+        <div class="photo-frame rotate-cw">
           <img src="images/gel_mix.jpg" alt="Three glasses of graphite and alginate mixture" />
         </div>
         <p class="photo-caption">The three mixtures before casting. Streaks mean the graphite is not fully dispersed yet.</p>
