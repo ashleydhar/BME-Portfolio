@@ -35,9 +35,15 @@
     .findings-box p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--text); line-height: 1.7; margin: 0; max-width: none; }
     .report-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; margin-top: 1rem; }
     .report-link:hover { background: var(--wine); color: var(--bg); }
-    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin: 2rem 0 4rem; }
-    .photo-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 3px; display: block; background: var(--surface); }
+
+    /* photos: square frames, images scaled to fit whole (no cropping) */
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin: 2rem 0 4rem; }
+    .photo-frame { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 3px; }
+    .photo-frame img { display: block; max-width: 100%; max-height: 100%; }
+    /* sideways photo: change 90deg to -90deg to spin it the other way */
+    .photo-frame.rotate img { transform: rotate(90deg); }
     .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; margin-top: 0.5rem; line-height: 1.5; }
+
     .figure { margin: 2rem 0; max-width: 800px; }
     .figure img { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); }
     .data-table { width: 100%; max-width: 660px; border-collapse: collapse; margin: 1.5rem 0; font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); }
@@ -50,7 +56,6 @@
       nav { padding: 1rem 1.5rem; } nav ul { gap: 1.25rem; }
       .project-hero, .project-body { padding-left: 1.5rem; padding-right: 1.5rem; }
       .project-hero { padding-top: 2.5rem; } .two-col { grid-template-columns: 1fr; gap: 2rem; }
-      .photo-grid img { height: auto; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
@@ -100,7 +105,7 @@
           <p>Each gel got wired into a circuit that turns resistance into a voltage the Arduino can read, ten times a second. Python did the rest: smoothing the noise, fitting the calibration curves, and confirming the sensor could track a finger tapping at a steady rate.</p>
         </div>
         <div>
-          <p>The gels turned out to be the fragile part, not the electronics. This is the fourth batch. One cracked overnight because I left it uncovered and it dried out. One had the graphite sink to the bottom before it set because I did not stir long enough. One tore when I got impatient and pulled it out of the mold early. What finally worked was storing them sealed with a damp paper towel and a splash of the calcium solution.</p>
+          <p>The gels turned out to be the fragile part, not the electronics. This is the fourth batch. One shrank so hard in the calcium bath that the samples pulled away from the mold and lost their shape entirely. One cracked overnight because I left it uncovered and it dried out. One had the graphite sink to the bottom before it set because I did not stir long enough. What finally worked was storing them sealed with a damp paper towel and a splash of the calcium solution.</p>
           <p>I also learned that this kind of circuit only works when its fixed resistor is close to what you are measuring. My lowest-graphite gel came in about twenty times higher than the biggest resistor I owned, so the Arduino read it in coarse jumps roughly as large as the signal itself. That sample's data is junk, and I kept it in the writeup anyway because it shows where the cutoff is.</p>
         </div>
       </div>
@@ -108,20 +113,22 @@
 
     <div class="photo-grid">
       <div>
-        <img src="images/double_boiler.jpg" alt="Alginate solution held at temperature over a double boiler on a stovetop" />
+        <div class="photo-frame rotate">
+          <img src="images/double_boiler.jpg" alt="Alginate solution held at temperature over a double boiler on a stovetop" />
+        </div>
         <p class="photo-caption">Double boiler standing in for a hotplate. Holds 60 °C without scorching the alginate.</p>
       </div>
       <div>
-        <img src="images/gel_mix.jpg" alt="Three glasses of graphite and alginate mixture" />
+        <div class="photo-frame">
+          <img src="images/gel_mix.jpg" alt="Three glasses of graphite and alginate mixture" />
+        </div>
         <p class="photo-caption">The three mixtures before casting. Streaks mean the graphite is not fully dispersed yet.</p>
       </div>
       <div>
-        <img src="images/example_set.jpg" alt="Silicone ice cube tray of gel samples sitting in a calcium chloride bath" />
-        <p class="photo-caption">Casting in an ice cube tray, labeled 0.3 / 0.9 / 1.5 g graphite, set in the calcium bath.</p>
-      </div>
-      <div>
-        <img src="images/failed_gel.jpg" alt="A failed hydrogel sample" />
-        <p class="photo-caption">[your failed batch photo — say which batch and what went wrong]</p>
+        <div class="photo-frame">
+          <img src="images/example_set.jpg" alt="Failed batch of hydrogel samples shrunken away from the mold cavities" />
+        </div>
+        <p class="photo-caption">A batch that failed. Labeled 0.3 / 0.9 / 1.5 g graphite. They shrank in the calcium bath and pulled away from the mold instead of holding the cavity shape.</p>
       </div>
     </div>
 
