@@ -106,7 +106,7 @@
         </div>
         <div>
           <p>The gels turned out to be the fragile part, not the electronics. This is the fourth batch. One shrank into lumps because I used the wrong tray, one cracked overnight after I left it uncovered, and one had the graphite sink before it set because I under-stirred. Storing them sealed with a damp paper towel and a splash of calcium solution finally worked.</p>
-          <p>The 1 percent gel never really worked as a sensor. Its resistance sat high and wandered between readings, because there was not enough graphite for the particles to form a connected path. I kept its data in anyway, since a sample that fails is the clearest evidence of where the cutoff is.</p>
+          <p>I also learned this kind of circuit only works when its fixed resistor is close to what you are measuring. My 1 percent gel came in around 169 kΩ and my resistors top out at 10 kΩ, so the Arduino read it in jumps about as coarse as the signal itself. That data is junk twice over: too little graphite to conduct well, and no way to read it properly. I kept it in anyway, since a sample that fails is the clearest evidence of where the cutoff is.</p>
         </div>
       </div>
     </section>
@@ -170,8 +170,8 @@
     <section>
       <span class="section-label">04 — Report</span>
       <h2>Where it goes next</h2>
-      <p>I wrote this up as a short lab report with the protocol, the data, and what I would change. The process works. My limits were sample handling and weighing things on a kitchen scale, not the chemistry.</p>
-      <p>Next round: more gels per concentration, 2 and 4 percent added to pin down the cutoff, testing in a humid box so I can tell drying out from wearing out, and a coating for the saltwater problem.</p>
+      <p>I wrote this up as a short lab report with the protocol, the data, and what I would change. The process works. My limits were sample handling, a kitchen scale, and the range of my resistors, not the chemistry.</p>
+      <p>Next round: more gels per concentration, 2 and 4 percent added to pin down the cutoff, resistors above 10 kΩ so the high-resistance samples can be read honestly, testing in a humid box so I can tell drying out from wearing out, and a coating for the saltwater problem.</p>
       <iframe src="assets/hydrogel_sensor_report.pdf" width="100%" height="800px" style="border: 1px solid var(--border); border-radius: 4px; margin-top: 1.5rem; display: block;"></iframe>
       <a href="assets/hydrogel_sensor_report.pdf" class="report-link" target="_blank" style="margin-top: 1rem;">↓ open report in new tab</a>
     </section>
