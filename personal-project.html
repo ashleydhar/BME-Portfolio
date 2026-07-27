@@ -45,8 +45,9 @@
     .photo-frame.rotate-cw img { transform: rotate(90deg); }
     .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; margin-top: 0.5rem; line-height: 1.5; }
 
+    /* every plot renders at the same size regardless of its native dimensions */
     .figure { margin: 2rem 0; max-width: 800px; }
-    .figure img { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); }
+    .figure img { width: 100%; aspect-ratio: 5 / 2; object-fit: contain; display: block; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); }
     .data-table { width: 100%; max-width: 660px; border-collapse: collapse; margin: 1.5rem 0; font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); }
     .data-table th { text-align: left; font-weight: 400; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text); border-bottom: 1.5px solid var(--rule); padding: 0.5rem 0.75rem 0.5rem 0; }
     .data-table td { padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--border); }
