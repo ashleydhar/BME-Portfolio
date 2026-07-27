@@ -31,9 +31,18 @@
     .project-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; font-style: italic; margin-bottom: 1rem; }
     .project-body p { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.9; margin-bottom: 1rem; max-width: 660px; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-    .photo-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin: 2rem 0; }
-    .photo-grid img { width: 100%; height: auto; object-fit: contain; border-radius: 3px; display: block; background: var(--surface); }
-    .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; margin-top: 0.5rem; }
+    .findings-box { background: var(--surface); border-left: 3px solid var(--wine); padding: 1.5rem; border-radius: 0 4px 4px 0; max-width: 660px; margin: 1.5rem 0; }
+    .findings-box p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--text); line-height: 1.7; margin: 0; max-width: none; }
+    .report-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cutive Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); border: 1px solid var(--wine); padding: 0.6rem 1rem; border-radius: 2px; text-decoration: none; transition: background 0.2s, color 0.2s; margin-top: 1rem; }
+    .report-link:hover { background: var(--wine); color: var(--bg); }
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin: 2rem 0 4rem; }
+    .photo-grid img { width: 100%; height: 240px; object-fit: cover; border-radius: 3px; display: block; background: var(--surface); }
+    .photo-caption { font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; margin-top: 0.5rem; line-height: 1.5; }
+    .figure { margin: 2rem 0; max-width: 800px; }
+    .figure img { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); }
+    .data-table { width: 100%; max-width: 660px; border-collapse: collapse; margin: 1.5rem 0; font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: var(--muted); }
+    .data-table th { text-align: left; font-weight: 400; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text); border-bottom: 1.5px solid var(--rule); padding: 0.5rem 0.75rem 0.5rem 0; }
+    .data-table td { padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--border); }
     footer { border-top: 1.5px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
     footer span { font-family: 'Cutive Mono', monospace; font-size: 0.78rem; color: var(--rule); letter-spacing: 0.05em; }
     .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--wine); }
@@ -60,14 +69,16 @@
 
   <div class="project-hero">
     <a href="index.html" class="back-link">← back to all work</a>
-    <div class="project-meta">[year]</div>
+    <div class="project-meta">Independent project · Summer 2026</div>
     <h1>Piezoresistive Conductive <br /><em>Hydrogel Pressure Sensor</em></h1>
     <p class="project-summary">
-      [to be completed]
+      Built a soft pressure sensor out of graphite-doped sodium alginate hydrogel, read it with an Arduino, and characterized three graphite loadings across the physiological pressure range. Nobody assigned this one. I wanted a project that ran from material synthesis all the way through to signal processing.
     </p>
     <div class="tags-row">
-      <span class="tag">[tag]</span>
-      <span class="tag">[tag]</span>
+      <span class="tag">hydrogels</span>
+      <span class="tag">arduino</span>
+      <span class="tag">python</span>
+      <span class="tag">self-directed</span>
     </div>
   </div>
 
@@ -76,7 +87,9 @@
     <section>
       <span class="section-label">01 — Background</span>
       <h2>Why I made this</h2>
-      <p>[motivations.]</p>
+      <p>Most of my coursework has me working on one layer of a problem at a time: a materials lab that ends when the sample is characterized, or a measurements lab where somebody hands me a working instrument. I wanted a project where I had to make the material, build the circuit that reads it, and write the code that turns the readings into something interpretable, because those are the three things a biomaterials or bioinstrumentation lab would actually expect me to do.</p>
+      <p>A piezoresistive sensor changes electrical resistance when it deforms. In a conductive composite, filler particles form a percolating network through an insulating matrix, and compressing the material pushes those particles closer together, adding conduction paths and lowering resistance. Below a critical filler fraction there is no continuous network, so the material stays resistive and responds to strain weakly and erratically. For carbon fillers in polymer matrices that threshold usually falls somewhere around 2 to 4 percent by weight per volume.</p>
+      <p>Sodium alginate was the obvious base material. It crosslinks with calcium at room temperature, needs no heating step and no toxic reagents, and has a published track record as a sensor matrix. Graphite powder is the conductive filler. The intended application is wearable pressure sensing on skin, where soft sensors outperform rigid ones because they bend with the body, and where the useful range is roughly 1 to 20 kPa.</p>
     </section>
 
     <section>
@@ -84,25 +97,74 @@
       <h2>How it came together</h2>
       <div class="two-col">
         <div>
-          <p>[materials, tools, decisions.]</p>
+          <p>I dissolved 2 percent w/v sodium alginate in distilled water at 60 degrees Celsius, split it into three batches, and stirred in graphite at 1, 3, and 5 percent w/v to bracket the percolation threshold. The mixtures went into silicone mold cavities at roughly 20 by 20 by 5 mm, giving a 4 cm² face so that pressure math stays simple. I pressed copper foil tape into opposite ends of each sample before it set, then crosslinked in 0.2 M calcium chloride for 20 minutes.</p>
+          <p>Each gel was wired as the unknown resistor in a voltage divider off the Arduino 5 V rail, read at 10 Hz over serial. Python handled acquisition, a Savitzky-Golay filter for noise, power-law fitting for the calibration curves, and an FFT to confirm the sensor tracked a repeated tapping rate. Calibration was four household weights on the gel face for 1.2, 2.5, 4.9, and 12.3 kPa, five trials per load per sample.</p>
         </div>
         <div>
-          <p>[challenges, iterations, surprising things.]</p>
+          <p>The gels turned out to be the fragile part of this project, not the electronics. What you see below is the fourth casting attempt. The first batch cracked along the electrode contacts after sitting uncovered overnight. The second had visible graphite settling at 5 percent because I under-stirred. The third tore when I got impatient and pulled it out of the mold early. The samples that finally survived repeated testing were stored in a sealed container with a damp paper towel and a splash of 0.1 M calcium chloride between sessions.</p>
+          <p>The other thing I learned the hard way is that a voltage divider is only sensitive when the reference resistor is close to the sensor resistance. My 1 percent sample sat near 170 kΩ and the largest resistor I owned was 10 kΩ, which pushed the ADC down to about 58 counts out of 1023. One count covered roughly 3.1 kΩ there, so the quantization step alone was comparable to the signal I was trying to measure. That sample's data is unusable, and I left it in the writeup anyway because it tells you where the percolation threshold sits.</p>
         </div>
       </div>
     </section>
 
     <div class="photo-grid">
       <div>
-        <img src="images/[your-photo].jpg" alt="[description]" />
-        <p class="photo-caption">[caption]</p>
+        <img src="images/hydrogel-batch1-cracked.jpg" alt="First hydrogel batch, cracked along the copper electrode contacts" />
+        <p class="photo-caption">Batch 1. Cracked along both electrode contacts after one night uncovered. Alginate gels lose water fast.</p>
+      </div>
+      <div>
+        <img src="images/hydrogel-batch2-settling.jpg" alt="Second batch showing graphite settled toward one face" />
+        <p class="photo-caption">Batch 2, 5% graphite. Under-stirred, so the filler settled toward one face before crosslinking.</p>
+      </div>
+      <div>
+        <img src="images/hydrogel-setup.jpg" alt="Arduino voltage divider with a hydrogel sample under a weight" />
+        <p class="photo-caption">The whole rig. Breadboard divider, copper tape contacts, household weights on a 4 cm² face.</p>
       </div>
     </div>
 
     <section>
-      <span class="section-label">03 — Outcome</span>
-      <h2>Where it ended up</h2>
-      <p>[finished thing, what to do differently.]</p>
+      <span class="section-label">03 — Results</span>
+      <h2>What the sensors did</h2>
+      <p>Baseline resistance dropped by almost two orders of magnitude between 1 and 3 percent graphite, and by another factor of four at 5 percent, which is what you would expect on either side of a percolation threshold. Samples B and C both decreased monotonically with applied pressure. Sample A did not.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Sample</th><th>Graphite</th><th>R₀</th><th>ΔR/R₀ at 12.3 kPa</th><th>Gauge factor</th><th>Drift, 100 cycles</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>A</td><td>1% w/v</td><td>169 kΩ</td><td>14.7%</td><td>2.07</td><td>22.9%</td></tr>
+          <tr><td>B</td><td>3% w/v</td><td>9.5 kΩ</td><td>58.6%</td><td>9.46</td><td>5.6%</td></tr>
+          <tr><td>C</td><td>5% w/v</td><td>2.4 kΩ</td><td>40.1%</td><td>7.71</td><td>3.9%</td></tr>
+        </tbody>
+      </table>
+
+      <div class="figure">
+        <img src="images/fig-calibration.png" alt="Normalized resistance versus applied pressure with power-law fits, and absolute resistance on a log axis" />
+        <p class="photo-caption">Calibration curves. Left: resistance normalized to each sample's own baseline, with power-law fits. Right: absolute resistance on a log axis. Error bars are ±1 SD, n = 5.</p>
+      </div>
+
+      <div class="findings-box">
+        <p>The 3 percent sample was the best sensor, not the 5 percent one. More filler means higher conductivity, but at 5 percent the network is already dense enough that compression adds few new contacts, so the fractional resistance change gets smaller. The useful concentration sits just above percolation rather than as high as possible.</p>
+      </div>
+
+      <p>Sample B's gauge factor of 9.5 lands at the top of the published range of 1 to 10 for this class of sensor, its power-law fit was clean (R² = 0.982), and it passed the standard durability benchmark of under 10 percent baseline drift over 100 compression cycles. The FFT of a repeated tapping run peaked at 0.50 Hz against a 0.5 Hz input, which confirmed the sensor tracks a real periodic load and is not just drifting.</p>
+
+      <div class="figure">
+        <img src="images/fig-durability.png" alt="Baseline resistance drift over 100 compression cycles for all three samples" />
+        <p class="photo-caption">Baseline drift over 100 compression cycles at 200 g. Samples B and C pass the 10 percent criterion. Sample A fails it badly.</p>
+      </div>
+
+      <p>The result I did not expect was the environmental test. Every sample gained resistance in deionized water and lost resistance in 0.9 percent saline, and for Sample B the saline shift was 34 percent, which is larger than that sensor's own response to 4.9 kPa of pressure. Ionic screening of the graphite network is a known problem for hydrogel sensors in biological environments, but seeing the interference outrun the signal made it concrete. Any skin-contact version of this needs a barrier layer or a matrix that is already ion-saturated, and that matters more than another point of gauge factor.</p>
+    </section>
+
+    <section>
+      <span class="section-label">04 — Report</span>
+      <h2>Where it goes next</h2>
+      <p>I wrote this up as a short lab report covering the theory, protocol, calibration fits, durability and environmental results, and what I would change. The honest summary is that the fabrication and readout chain works, and that the limits I ran into were sample handling, load application, and my resistor collection rather than the hydrogel chemistry.</p>
+      <p>Next round: three gels per concentration instead of one so the error bars mean something between samples, added 2 and 4 percent loadings to bracket the threshold directly, a proper resistor kit so the divider is matched, durability testing in a humid chamber with the gel weighed before and after so evaporation gets logged instead of guessed at, and a first attempt at a barrier layer for the saline problem.</p>
+      <iframe src="assets/hydrogel_sensor_report.pdf" width="100%" height="800px" style="border: 1px solid var(--border); border-radius: 4px; margin-top: 1.5rem; display: block;"></iframe>
+      <a href="assets/hydrogel_sensor_report.pdf" class="report-link" target="_blank" style="margin-top: 1rem;">↓ open report in new tab</a>
+      <a href="https://github.com/ashleydhar/BME-Portfolio" class="report-link" target="_blank" style="margin-top: 1rem;">↗ acquisition and analysis code</a>
     </section>
 
   </div>
